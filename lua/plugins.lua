@@ -1,0 +1,3 @@
+require('cmp/cmp')
+require('rust_tools/rust_tools')
+require('ts/setup')
