@@ -1,3 +1,7 @@
+local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/'
+local codelldb_path = extension_path .. 'adapter/codelldb'
+local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
+
 require("inlay-hints").setup({
   only_current_line = true,
 
@@ -9,6 +13,8 @@ local ih = require("inlay-hints")
 ---- Configure LSP through rust-tools.nvim plugin.
 -- rust-tools will configure and enable certain LSP features for us.
 -- See https://github.com/simrat39/rust-tools.nvim#configuration
+local rt = require("rust-tools")
+
 local opts = {
   tools = { -- rust-tools options
 
@@ -26,7 +32,7 @@ local opts = {
       ih.set_all()
     end,
     inlay_hints = {
-      auto = false,
+      auto = true,
     },
    -- options same as lsp hover / vim.lsp.util.open_floating_preview()
     hover_actions = {
@@ -63,6 +69,10 @@ local opts = {
     -- on_attach is a callback called when the language server attachs to the buffer
     on_attach = function(c, b)
       ih.on_attach(c, b)
+      -- Hover actions
+      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+      -- Code action groups
+      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
     end,
     settings = {
       -- to enable rust-analyzer settings visit:
@@ -70,7 +80,7 @@ local opts = {
       ["rust-analyzer"] = {
         -- enable clippy on save
         cargo = {
-            -- features = "all",
+            features = "all",
         },
         checkOnSave = {
             command = "clippy",
@@ -96,12 +106,19 @@ local opts = {
   },
   -- debugging stuff
   dap = {
-    adapter = {
-      type = "executable",
-      command = "lldb-vscode",
-      name = "rt_lldb",
-    },
+        adapter = require('rust-tools.dap').get_codelldb_adapter(
+            codelldb_path, liblldb_path)
   },
+  -- dap = {
+  --   adapter = {
+  --     type = "server",
+  --     port = "21111",
+  --     host = "127.0.0.1",
+  --     executable = {
+  --       command = codelldb_path,
+  --       args = { "--liblldb", liblldb_path, "--port", "21111" },
+  --     },  
+
 }
 local rust_tools = require("rust-tools")
 rust_tools.setup(opts)

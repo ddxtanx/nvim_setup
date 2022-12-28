@@ -108,7 +108,7 @@ local config = {
     plugins = {
       aerial = true,
       beacon = false,
-      bufferline = true,
+      bufferline = false,
       cmp = true,
       dashboard = true,
       highlighturl = true,
@@ -143,7 +143,7 @@ local config = {
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = true, -- enable or disable format on save globally
+        enabled = false, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
         },
@@ -202,12 +202,9 @@ local config = {
       -- second key is the lefthand side of the map
       -- mappings seen under group name "Buffer"
       ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
-      ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
-      ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
-      ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
-      ["gt"]         = {":bn<cr>", desc = "Next tab"},
-      ["gT"]         = {":bp<cr>", desc = "Previous tab"},
-      ["tq"]         = {":bd<cr>", desc = "Close tab"},
+      ["gt"] = { ":bn<cr>", desc = "Next tab" },
+      ["gT"] = { ":bp<cr>", desc = "Previous tab" },
+      ["tq"] = { ":bd<cr>", desc = "Close tab" },
       -- quick save
       -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     },
@@ -225,73 +222,77 @@ local config = {
 
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
-      {"simrat39/inlay-hints.nvim"},
-	  {
-			  "neovim/nvim-lspconfig",
-  	  		  event = { 
-					  "BufReadPre", 
-			  },
-  	    	  wants = {
-      		  "inlay-hints.nvim",
-      		  },
-     		  requires = {
-        	{
-            	"simrat39/inlay-hints.nvim",
-            	config = function()
-            		require("inlay-hints").setup()
-        		end,
-        	},
-	    },
-      },
-	  {"simrat39/rust-tools.nvim"},
-	  {'nvim-tree/nvim-web-devicons'},
-	  {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'},
-    {
-        'numToStr/Comment.nvim',
-          config = function()
-              require('Comment').setup()
-          end
-      },
-	  {
-	    "Pocco81/auto-save.nvim",
-	    config = function()
-		    require("auto-save").setup {
-			-- your config goes here
-			-- or just leave it empty :)
-		 }
-	    end,
-      },
-	  {"hrsh7th/cmp-nvim-lsp"},
-	  {"hrsh7th/nvim-cmp"},
-	  {"hrsh7th/cmp-vsnip"},
-	  {"hrsh7th/cmp-path"},
-	  {"hrsh7th/cmp-nvim-lsp-signature-help"},
-	  {"hrsh7th/cmp-buffer"},
-	  {'hrsh7th/vim-vsnip'},
-	  {"nvim-lua/plenary.nvim"},
-	  {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
-        requires = { {'nvim-lua/plenary.nvim'} }
-      },
-	  {"mfussenegger/nvim-dap"},
+      { "simrat39/inlay-hints.nvim" },
+      -- {
+      --   "neovim/nvim-lspconfig",
+      --   		  event = {
+      -- 		  "BufReadPre",
+      --   },
+      --     	  wants = {
+      --    		  "inlay-hints.nvim",
+      --    		  },
+      --   		  requires = {
+      --      	{
+      --          	"simrat39/inlay-hints.nvim",
+      --          	config = function()
+      --          		require("inlay-hints").setup()
+      --      		end,
+      --      	},
+      --   },
+      --    },
       {
-          "danymat/neogen",
-          config = function()
-              require('neogen').setup {}
-          end,
-          requires = "nvim-treesitter/nvim-treesitter",
-          -- Uncomment next line if you want to follow only stable versions
-          -- tag = "*"
+        "simrat39/rust-tools.nvim",
+        wants = {
+          "simrat39/inlay-hints.nvim",
+        },
       },
-	  { "andweeb/presence.nvim" },
-	{
-    'saecki/crates.nvim',
-    tag = 'v0.3.0',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = function()
-        require('crates').setup()
-    end,
-    },
+      -- { "nvim-tree/nvim-web-devicons" },
+      { "romgrk/barbar.nvim", wants = "nvim-web-devicons" },
+      -- {
+      --  "numToStr/Comment.nvim",
+      --  config = function() require("Comment").setup() end,
+      -- },
+      {
+        "Pocco81/auto-save.nvim",
+        config = function()
+          require("auto-save").setup {
+            -- your config goes here
+            -- or just leave it empty :)
+          }
+        end,
+      },
+      -- { "hrsh7th/cmp-nvim-lsp" },
+      -- { "hrsh7th/nvim-cmp" },
+      -- { "hrsh7th/cmp-vsnip" },
+      -- { "hrsh7th/cmp-path" },
+      -- { "hrsh7th/cmp-nvim-lsp-signature-help" },
+      -- { "hrsh7th/cmp-buffer" },
+      -- { "hrsh7th/vim-vsnip" },
+      -- { "nvim-lua/plenary.nvim" },
+      -- {
+      --   "nvim-telescope/telescope.nvim",
+      --   tag = "0.1.0",
+      --   requires = { { "nvim-lua/plenary.nvim" } },
+      -- },
+      -- { "mfussenegger/nvim-dap" },
+      {
+        "danymat/neogen",
+        config = function() require("neogen").setup {} end,
+        requires = "nvim-treesitter/nvim-treesitter",
+        -- Uncomment next line if you want to follow only stable versions
+        -- tag = "*"
+      },
+      { "andweeb/presence.nvim" },
+      -- {
+      --   "saecki/crates.nvim",
+      --   tag = "v0.3.0",
+      --   requires = { "nvim-lua/plenary.nvim" },
+      --   after = "nvim-cmp",
+      --   config = function()
+      --     require("crates").setup()
+      --     astronvim.add_cmp_source("crates", 100)
+      --   end,
+      -- },
       -- {
       --   "ray-x/lsp_signature.nvim",
       --   event = "BufRead",
@@ -320,7 +321,7 @@ local config = {
         -- Set a formatter
         -- null_ls.builtins.formatting.stylua,
         -- null_ls.builtins.formatting.prettier,
-        null_ls.builtins.formatting.rustfmt, 
+        null_ls.builtins.formatting.rustfmt,
       }
       return config -- return final config table
     end,
@@ -333,7 +334,7 @@ local config = {
     },
     -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
     ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
-      ensure_installed = { "prettier", "stylua", "rustfmt" },
+      -- ensure_installed = { "prettier", "stylua", "rustfmt" },
     },
     ["mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
       ensure_installed = { "cppdbg" },
@@ -400,11 +401,12 @@ local config = {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
-    require("plugins")
-    require("keymaps")
-
+    require "plugins"
+    require "keymaps"
   end,
+
 }
+
 -- Set completeopt to have a better completion experience
 -- :help completeopt
 -- menuone: popup even when there's only one match
