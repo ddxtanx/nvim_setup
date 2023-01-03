@@ -1,6 +1,5 @@
 cpp_conf = {
-  {
-    name = 'Launch',
+    name = 'VSCode LLDB Debugger',
     type = 'lldb',
     request = 'launch',
     program = function()
@@ -22,11 +21,17 @@ cpp_conf = {
     -- But you should be aware of the implications:
     -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
     -- runInTerminal = false,
-  },
 }
 
+rust_conf = cpp_conf
+
+rust_conf['program'] = function()
+  vim.fn.system('cargo build')
+  return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+end
+
 return {
-  cpp = cpp_conf,
-  c = cpp_conf,
-  rust = cpp_conf
+  cpp = {cpp_conf},
+  c = {cpp_conf},
+  rust = {rust_conf}
 }
