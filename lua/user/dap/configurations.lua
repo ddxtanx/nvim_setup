@@ -30,6 +30,8 @@ rust_conf['program'] = function()
   return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
 end
 
+require("dap").defaults.rust.exception_breakpoints = {"panicked"}
+
 return {
   cpp = {cpp_conf},
   c = {cpp_conf},

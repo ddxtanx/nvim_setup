@@ -108,7 +108,7 @@ local config = {
     plugins = {
       aerial = true,
       beacon = false,
-      bufferline = false,
+      bufferline = true,
       cmp = true,
       dashboard = true,
       highlighturl = true,
@@ -222,6 +222,7 @@ local config = {
 
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
+      { 'wakatime/vim-wakatime' },
       { "simrat39/inlay-hints.nvim" },
       -- {
       --   "neovim/nvim-lspconfig",
@@ -246,6 +247,7 @@ local config = {
           "simrat39/inlay-hints.nvim",
         },
       },
+      {'lervag/vimtex'},
       -- { "nvim-tree/nvim-web-devicons" },
       { "romgrk/barbar.nvim", wants = "nvim-web-devicons" },
       -- {
