@@ -29,8 +29,9 @@ rust_conf['program'] = function()
   vim.fn.system('cargo build')
   return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
 end
-
 require("dap").defaults.rust.exception_breakpoints = {"panicked"}
+require("dap").defaults.cpp.exception_breakpoints = {"stopped"}
+require("dap").defaults.c.exception_breakpoints = {"stopped"}
 
 return {
   cpp = {cpp_conf},

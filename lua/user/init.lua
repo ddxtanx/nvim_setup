@@ -222,7 +222,19 @@ local config = {
 
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
-      { 'wakatime/vim-wakatime' },
+    { 'wakatime/vim-wakatime' },
+    {
+      'Joakker/lua-json5',
+      run = './install.sh'
+    },
+    {
+      'EthanJWright/vs-tasks.nvim',
+      requires = {
+        'nvim-lua/popup.nvim',
+        'nvim-lua/plenary.nvim',
+        'nvim-telescope/telescope.nvim'
+      }
+    },
       { "simrat39/inlay-hints.nvim" },
       -- {
       --   "neovim/nvim-lspconfig",
@@ -247,7 +259,15 @@ local config = {
           "simrat39/inlay-hints.nvim",
         },
       },
+      {
+          'SirVer/ultisnips',
+          after = "nvim-cmp",
+          config = function ()
+              astronvim.add_user_cmp_source "ultisnips"
+          end,
+      },
       {'lervag/vimtex'},
+      {'honza/vim-snippets'},
       -- { "nvim-tree/nvim-web-devicons" },
       { "romgrk/barbar.nvim", wants = "nvim-web-devicons" },
       -- {
@@ -365,6 +385,7 @@ local config = {
   cmp = {
     source_priority = {
       nvim_lsp = 1000,
+      ultisnips = 800,
       luasnip = 750,
       buffer = 500,
       path = 250,
@@ -404,6 +425,7 @@ local config = {
     --   },
     -- }
     require "plugins"
+    require "constants"
     require "keymaps"
   end,
 

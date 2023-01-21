@@ -190,7 +190,7 @@ if is_available "telescope.nvim" then
   maps.n["<leader>gc"] = { function() require("telescope.builtin").git_commits() end, desc = "Git commits" }
   maps.n["<leader>ff"] = { function() require("telescope.builtin").find_files() end, desc = "Search files" }
   maps.n["<leader>fF"] = {
-    function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
+    function() require("telescope.builtin").find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }}) end,
     desc = "Search all files",
   }
   maps.n["<leader>fb"] = { function() require("telescope.builtin").buffers() end, desc = "Search buffers" }
