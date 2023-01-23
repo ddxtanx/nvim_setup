@@ -224,6 +224,10 @@ local config = {
       -- Add plugins, the packer syntax without the "use"
     { 'wakatime/vim-wakatime' },
     {
+      "luukvbaal/statuscol.nvim",
+      config = function() require("statuscol").setup() end
+    },
+    {
       'Joakker/lua-json5',
       run = './install.sh'
     },
