@@ -227,10 +227,10 @@ local config = {
       "luukvbaal/statuscol.nvim",
       config = function() require("statuscol").setup() end
     },
-    {
-      'Joakker/lua-json5',
-      run = './install.sh'
-    },
+    -- {
+    --   'Joakker/lua-json5',
+    --   run = './install.sh'
+    -- },
     {
       'EthanJWright/vs-tasks.nvim',
       requires = {
@@ -389,7 +389,7 @@ local config = {
   cmp = {
     source_priority = {
       nvim_lsp = 1000,
-      ultisnips = 800,
+      ultisnips = 1200,
       luasnip = 750,
       buffer = 500,
       path = 250,
