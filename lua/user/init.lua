@@ -223,6 +223,7 @@ local config = {
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
     { 'wakatime/vim-wakatime' },
+    { 'paretje/nvim-man'      },
     {
       "luukvbaal/statuscol.nvim",
       config = function() require("statuscol").setup() end
