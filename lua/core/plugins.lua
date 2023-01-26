@@ -26,11 +26,11 @@ local astro_plugins = {
   ["nvim-lua/plenary.nvim"] = { module = "plenary" },
 
   -- Indent detection
-  ["Darazaki/indent-o-matic"] = {
-    opt = true,
-    setup = function() table.insert(astronvim.file_plugins, "indent-o-matic") end,
-    config = function() require "configs.indent-o-matic" end,
-  },
+  -- ["Darazaki/indent-o-matic"] = {
+  --   opt = true,
+  --   setup = function() table.insert(astronvim.file_plugins, "indent-o-matic") end,
+  --   config = function() require "configs.indent-o-matic" end,
+  -- },
 
   -- Notification Enhancer
   ["rcarriga/nvim-notify"] = {
