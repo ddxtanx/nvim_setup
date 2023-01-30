@@ -223,6 +223,10 @@ local config = {
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
     { 'wakatime/vim-wakatime' },
+    {
+      'kosayoda/nvim-lightbulb',
+      requires = 'antoinemadec/FixCursorHold.nvim',
+    },
     { 'paretje/nvim-man'      },
     {
       "luukvbaal/statuscol.nvim",
