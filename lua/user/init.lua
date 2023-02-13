@@ -201,10 +201,10 @@ local config = {
     n = {
       -- second key is the lefthand side of the map
       -- mappings seen under group name "Buffer"
-      ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
-      ["gt"] = { ":bn<cr>", desc = "Next tab" },
-      ["gT"] = { ":bp<cr>", desc = "Previous tab" },
+      ["tn"] = { ":bn<cr>", desc = "Next tab" },
+      ["tp"] = { ":bp<cr>", desc = "Previous tab" },
       ["tq"] = { ":bd<cr>", desc = "Close tab" },
+      ["<leader>uD"] = { "<cmd> echo system('date')<cr>", desc = "Display Current Time"},
       -- quick save
       -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     },
