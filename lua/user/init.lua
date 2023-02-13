@@ -224,8 +224,11 @@ local config = {
       -- Add plugins, the packer syntax without the "use"
     { 'wakatime/vim-wakatime' },
     {
-      'kosayoda/nvim-lightbulb',
-      requires = 'antoinemadec/FixCursorHold.nvim',
+     'kkoomen/vim-doge',
+      run = ':call doge#install()'
+    },
+    {
+      "ray-x/lsp_signature.nvim",
     },
     { 'paretje/nvim-man'      },
     {
