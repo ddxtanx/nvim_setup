@@ -138,7 +138,9 @@ local config = {
   lsp = {
     -- enable servers that you already have installed without mason
     servers = {
-      -- "pyright"
+      "pyright",
+      "clangd",
+      "rust_analyzer",
     },
     formatting = {
       -- control auto formatting on save
@@ -275,7 +277,6 @@ local config = {
       {
         "simrat39/rust-tools.nvim",
         dependencies = {
-		'neovim/nvim-lspconfig',
 		"simrat39/inlay-hints.nvim",
           "simrat39/inlay-hints.nvim",
 		    },
@@ -374,37 +375,39 @@ local config = {
 ---    ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
 ---      -- ensure_installed = { "sumneko_lua" },
 ---    },
-      {
-        "williamboman/mason-lspconfig.nvim",
-        config = function()
-          require("mason-lspconfig").setup({
-            ensure_installed = {
-              "clangd",
-              "pyright",
-              "rust_analyzer",
-            }
-          })
-        end,
-      },
----    -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
----    ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
----      -- ensure_installed = { "prettier", "stylua", "rustfmt" },
----    },
-      {
-        "jay-babu/mason-null-ls.nvim",
-        config = function()
-          require("mason-null-ls").setup({
-            ensure_installed = {
-              "cmakelang",
-              "luacheck",
-              "pyflakes",
-              "autopep8",
-              "latexindent",
-              "rustfmt"
-            }
-          })
-        end,
-      },
+--       {
+--         "williamboman/mason-lspconfig.nvim",
+--         config = function(plugin, opts)
+--           require("plugins.configs.mason-lspconfig")(plugin, {
+--             ensure_installed = {
+--               "clangd",
+--               "pyright",
+--               "rust_analyzer",
+--             }
+--           })
+--         end,
+--         lazy = false
+--       },
+-- ---    -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
+-- ---    ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
+-- ---      -- ensure_installed = { "prettier", "stylua", "rustfmt" },
+-- ---    },
+--       {
+--         "jay-babu/mason-null-ls.nvim",
+--         config = function(plugin, opts)
+--           require("plugins.configs.mason-null-ls")(plugin,{
+--             ensure_installed = {
+--               "cmakelang",
+--               "luacheck",
+--               "pyflakes",
+--               "autopep8",
+--               "latexindent",
+--               "rustfmt"
+--             }
+--           })
+--         end,
+--         lazy = false
+--       },
 ---    "mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
 ---      ensure_installed = { "cppdbg" },
 ---    },
