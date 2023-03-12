@@ -15,5 +15,9 @@ return {
       config = require "plugins.configs.nvim-dap-ui",
     },
   },
-  event = "User AstroFile",
+  config = function ()
+    dap = require("dap")
+    dap.adapters = require("user/dap/adapters")
+    dap.configurations = require("user/dap/configurations")
+  end,
 }

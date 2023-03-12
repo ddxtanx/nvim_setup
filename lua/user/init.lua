@@ -26,7 +26,7 @@ local config = {
   },
 
   -- Set colorscheme to use
-  colorscheme = "default_theme",
+  colorscheme = "astrodark",
 
   -- Add highlight groups in any theme
   highlights = {
@@ -213,151 +213,174 @@ local config = {
       -- ["<esc>"] = false,
     },
   },
-
-  -- Configure plugins
   plugins = {
-    {
-  "ray-x/lsp_signature.nvim",
-  event = "BufRead",
-  config = function()
-    require("lsp_signature").setup()
-  end,
-},
-
-"andweeb/presence.nvim",
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
 
       -- You can also add new plugins here as well:
 	  -- Add plugins, the packer syntax without the "use"
----	'neovim/nvim-lspconfig',	
----     "ActivityWatch/aw-watcher-vim",
----    {
----      "iamcco/markdown-preview.nvim",
----      init = function() vim.fn["mkdp#util#install"]() end,
----    },
----    {
----     'kkoomen/vim-doge',
----      init = function() vim.fn["doge#install"]() end,
----    },
----	{
----			"ray-x/lsp_signature.nvim",
----			config = function() require("lsp_signature/setup") end
----	},
----    'paretje/nvim-man',
----    -- {
----    --   'Joakker/lua-json5',
----    --   run = './install.sh'
----    -- },
----    {
----      'EthanJWright/vs-tasks.nvim',
----      dependencies = {
----        'nvim-lua/popup.nvim',
----        'nvim-lua/plenary.nvim',
----        'nvim-telescope/telescope.nvim'
----		  }
----    },
----    "simrat39/inlay-hints.nvim",
----      -- {
----      --   "neovim/nvim-lspconfig",
----      --   		  event = {
----      -- 		  "BufReadPre",
----      --   },
----      --     	  wants = {
----      --    		  "inlay-hints.nvim",
----      --    		  },
----      --   		  requires = {
----      --      	{
----      --          	"simrat39/inlay-hints.nvim",
----      --          	config = function()
----      --          		require("inlay-hints").setup()
----      --      		end,
----      --      	},
----      --   },
----      --    },
----      {
----        "simrat39/rust-tools.nvim",
----        dependencies = {
----		'neovim/nvim-lspconfig',	
----		"simrat39/inlay-hints.nvim",
----          "simrat39/inlay-hints.nvim",
----		    },
----		config = function() require("rust-tools/rust-tools") end 
----      },
----      {
----          'SirVer/ultisnips',
----          dependencies = {'hrsh7th/nvim-cmp'},
----          config = function ()
----              astronvim.add_user_cmp_source "ultisnips"
----          end,
----      },
----      'lervag/vimtex',
----      'honza/vim-snippets',
----      -- { "nvim-tree/nvim-web-devicons" },
----      { "romgrk/barbar.nvim", dependencies = {"nvim-web-devicons"} },
----      -- {
----      --  "numToStr/Comment.nvim",
----      --  config = function() require("Comment").setup() end,
----      -- },
----      {
----        "Pocco81/auto-save.nvim",
----        config = function()
----          require("auto-save").setup {
----            -- your config goes here
----            -- or just leave it empty :)
----          }
----        end,
----      },
----      -- { "hrsh7th/cmp-nvim-lsp" },
----      -- { "hrsh7th/nvim-cmp" },
----      -- { "hrsh7th/cmp-vsnip" },
----      -- { "hrsh7th/cmp-path" },
----      -- { "hrsh7th/cmp-nvim-lsp-signature-help" },
----      -- { "hrsh7th/cmp-buffer" },
----      -- { "hrsh7th/vim-vsnip" },
----      -- { "nvim-lua/plenary.nvim" },
----      -- {
----      --   "nvim-telescope/telescope.nvim",
----      --   tag = "0.1.0",
----      --   requires = { { "nvim-lua/plenary.nvim" } },
----      -- },
----      -- { "mfussenegger/nvim-dap" },
----      {
----        "danymat/neogen",
----        config = function() require("neogen").setup {} end,
----        dependencies = {"nvim-treesitter/nvim-treesitter"},
----        -- Uncomment next line if you want to follow only stable versions
----        -- tag = "*"
----      },
----	  {
----			  "andweeb/presence.nvim",
----			  config = function() require("presence/setup") end
----	  },
----      -- {
----      --   "saecki/crates.nvim",
----      --   tag = "v0.3.0",
----      --   requires = { "nvim-lua/plenary.nvim" },
----      --   after = "nvim-cmp",
----      --   config = function()
----      --     require("crates").setup()
----      --     astronvim.add_cmp_source("crates", 100)
----      --   end,
----      -- },
----      -- {
----      --   "ray-x/lsp_signature.nvim",
----      --   event = "BufRead",
----      --   config = function()
----      --     require("lsp_signature").setup()
----      --   end,
----      -- },
----
----      -- We also support a key value style plugin definition similar to NvChad:
----      -- ["ray-x/lsp_signature.nvim"] = {
----      --   event = "BufRead",
----      --   config = function()
----      --     require("lsp_signature").setup()
----      --   end,
----      -- },
+  { 
+    "AstroNvim/astrotheme",
+    lazy = false
+  },	
+	{
+	  'neovim/nvim-lspconfig',
+	  event = "BufEnter"
+	},	
+  {
+    "ActivityWatch/aw-watcher-vim",
+    lazy = false
+  },
+    {
+      "iamcco/markdown-preview.nvim",
+      build = function() vim.fn["mkdp#util#install"]() end,
+      ft = "md"
+    },
+    {
+     'kkoomen/vim-doge',
+     init = function()
+       vim.g.doge_mapping = "<Leader>D"
+     end,
+      build = function() 
+        vim.fn["doge#install"]()
+        vim.g.doge_mapping = "<Leader>D"
+      end,
+      config = function() 
+        vim.g.doge_mapping = "<Leader>D"
+      end,
+      event = "BufEnter"
+    },
+	{
+			"ray-x/lsp_signature.nvim",
+			config = function() require("lsp_signature/setup") end,
+			event = "BufEnter"
+	},
+    {
+      'paretje/nvim-man',
+      ft = {
+        "c",
+        "cpp",
+        "h",
+        "hpp"
+      }
+    },
+    -- {
+    --   'Joakker/lua-json5',
+    --   run = './install.sh'
+    -- },
+    {
+      'EthanJWright/vs-tasks.nvim',
+      dependencies = {
+        'nvim-lua/popup.nvim',
+        'nvim-lua/plenary.nvim',
+        'nvim-telescope/telescope.nvim'
+		  }
+    },
+    {
+      "simrat39/inlay-hints.nvim",
+      event = "BufEnter"
+    },
+      -- {
+      --   "neovim/nvim-lspconfig",
+      --   		  event = {
+      -- 		  "BufReadPre",
+      --   },
+      --     	  wants = {
+      --    		  "inlay-hints.nvim",
+      --    		  },
+      --   		  requires = {
+      --      	{
+      --          	"simrat39/inlay-hints.nvim",
+      --          	config = function()
+      --          		require("inlay-hints").setup()
+      --      		end,
+      --      	},
+      --   },
+      --    },
+      {
+        "simrat39/rust-tools.nvim",
+        dependencies = {
+		'neovim/nvim-lspconfig',	
+		"simrat39/inlay-hints.nvim",
+          "simrat39/inlay-hints.nvim",
+		    },
+		  config = function() require("rust_tools/rust_tools") end,
+		  event = "BufEnter"
+      },
+      {
+          'SirVer/ultisnips',
+          dependencies = {'hrsh7th/nvim-cmp'},
+          config = function ()
+              astronvim.add_user_cmp_source "ultisnips"
+          end,
+      },
+      {
+        'lervag/vimtex',
+        ft = ".tex"
+      },
+      {
+        'honza/vim-snippets',
+        event = "BufEnter",
+      },
+      -- { "nvim-tree/nvim-web-devicons" },
+      { "romgrk/barbar.nvim", dependencies = {"nvim-web-devicons"} },
+      -- {
+      --  "numToStr/Comment.nvim",
+      --  config = function() require("Comment").setup() end,
+      -- },
+      {
+        "Pocco81/auto-save.nvim",
+        config = function()
+          require("auto-save").setup {
+            -- your config goes here
+            -- or just leave it empty :)
+          }
+        end,
+        event = "BufEnter"
+      },
+      -- { "hrsh7th/cmp-nvim-lsp" },
+      -- { "hrsh7th/nvim-cmp" },
+      -- { "hrsh7th/cmp-vsnip" },
+      -- { "hrsh7th/cmp-path" },
+      -- { "hrsh7th/cmp-nvim-lsp-signature-help" },
+      -- { "hrsh7th/cmp-buffer" },
+      -- { "hrsh7th/vim-vsnip" },
+      -- { "nvim-lua/plenary.nvim" },
+      -- {
+      --   "nvim-telescope/telescope.nvim",
+      --   tag = "0.1.0",
+      --   requires = { { "nvim-lua/plenary.nvim" } },
+      -- },
+	  {
+			  "andweeb/presence.nvim",
+			  config = function() require("presence/setup") end,
+			  lazy = false
+	  },
+      -- {
+      --   "saecki/crates.nvim",
+      --   tag = "v0.3.0",
+      --   requires = { "nvim-lua/plenary.nvim" },
+      --   after = "nvim-cmp",
+      --   config = function()
+      --     require("crates").setup()
+      --     astronvim.add_cmp_source("crates", 100)
+      --   end,
+      -- },
+      -- {
+      --   "ray-x/lsp_signature.nvim",
+      --   event = "BufRead",
+      --   config = function()
+      --     require("lsp_signature").setup()
+      --   end,
+      -- },
+
+      -- We also support a key value style plugin definition similar to NvChad:
+      -- ["ray-x/lsp_signature.nvim"] = {
+      --   event = "BufRead",
+      --   config = function()
+      --     require("lsp_signature").setup()
+      --   end,
+      -- },
     -- All other entries override the require("<key>").setup({...}) call for default plugins
 ---    ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
 ---      -- config variable is the default configuration table for the setup function call
@@ -454,7 +477,11 @@ local config = {
     require "constants"
     require "keymaps"
   end,
-
+  dap = {
+    adapters = require("user/dap/adapters"),
+    configurations = require("user/dap/configurations"),
+    defaults = require("user/dap/defaults")
+  }
 }
 
 -- Set completeopt to have a better completion experience
@@ -466,5 +493,6 @@ vim.o.completeopt = "menuone,noinsert,noselect"
 
 -- Avoid showing extra messages when using completion
 vim.opt.shortmess = vim.opt.shortmess + "c"
+
 
 return config
