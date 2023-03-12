@@ -223,10 +223,6 @@ local config = {
     "AstroNvim/astrotheme",
     lazy = false
   },	
-	{
-	  'neovim/nvim-lspconfig',
-	  event = "BufEnter"
-	},	
   {
     "ActivityWatch/aw-watcher-vim",
     lazy = false
@@ -264,10 +260,6 @@ local config = {
         "hpp"
       }
     },
-    -- {
-    --   'Joakker/lua-json5',
-    --   run = './install.sh'
-    -- },
     {
       'EthanJWright/vs-tasks.nvim',
       dependencies = {
@@ -280,27 +272,10 @@ local config = {
       "simrat39/inlay-hints.nvim",
       event = "BufEnter"
     },
-      -- {
-      --   "neovim/nvim-lspconfig",
-      --   		  event = {
-      -- 		  "BufReadPre",
-      --   },
-      --     	  wants = {
-      --    		  "inlay-hints.nvim",
-      --    		  },
-      --   		  requires = {
-      --      	{
-      --          	"simrat39/inlay-hints.nvim",
-      --          	config = function()
-      --          		require("inlay-hints").setup()
-      --      		end,
-      --      	},
-      --   },
-      --    },
       {
         "simrat39/rust-tools.nvim",
         dependencies = {
-		'neovim/nvim-lspconfig',	
+		'neovim/nvim-lspconfig',
 		"simrat39/inlay-hints.nvim",
           "simrat39/inlay-hints.nvim",
 		    },
@@ -310,8 +285,24 @@ local config = {
       {
           'SirVer/ultisnips',
           dependencies = {'hrsh7th/nvim-cmp'},
-          config = function ()
-              astronvim.add_user_cmp_source "ultisnips"
+          event = "BufEnter"
+      },
+      { -- override nvim-autopairs plugin
+        "hrsh7th/nvim-cmp",
+        -- override the options table that is used in the `require("cmp").setup()` call
+        opts = function(_, opts)
+          -- opts parameter is the default options table
+          -- the function is lazy loaded so cmp is able to be required
+          local cmp = require "cmp"
+            -- modify the sources part of the options table
+            opts.sources = cmp.config.sources {
+              { name = "nvim_lsp", priority = 1000 },
+              { name = "luasnip", priority = 750 },
+              { name = "buffer", priority = 500 },
+              { name = "path", priority = 250 },
+            }
+            -- return the new table to be used
+            return opts
           end,
       },
       {
@@ -322,35 +313,14 @@ local config = {
         'honza/vim-snippets',
         event = "BufEnter",
       },
-      -- { "nvim-tree/nvim-web-devicons" },
-      { "romgrk/barbar.nvim", dependencies = {"nvim-web-devicons"} },
-      -- {
-      --  "numToStr/Comment.nvim",
-      --  config = function() require("Comment").setup() end,
-      -- },
       {
         "Pocco81/auto-save.nvim",
         config = function()
           require("auto-save").setup {
-            -- your config goes here
-            -- or just leave it empty :)
           }
         end,
         event = "BufEnter"
       },
-      -- { "hrsh7th/cmp-nvim-lsp" },
-      -- { "hrsh7th/nvim-cmp" },
-      -- { "hrsh7th/cmp-vsnip" },
-      -- { "hrsh7th/cmp-path" },
-      -- { "hrsh7th/cmp-nvim-lsp-signature-help" },
-      -- { "hrsh7th/cmp-buffer" },
-      -- { "hrsh7th/vim-vsnip" },
-      -- { "nvim-lua/plenary.nvim" },
-      -- {
-      --   "nvim-telescope/telescope.nvim",
-      --   tag = "0.1.0",
-      --   requires = { { "nvim-lua/plenary.nvim" } },
-      -- },
 	  {
 			  "andweeb/presence.nvim",
 			  config = function() require("presence/setup") end,
@@ -404,11 +374,38 @@ local config = {
 ---    ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
 ---      -- ensure_installed = { "sumneko_lua" },
 ---    },
+      {
+        "williamboman/mason-lspconfig.nvim",
+        config = function()
+          require("mason-lspconfig").setup({
+            ensure_installed = {
+              "clangd",
+              "pyright",
+              "rust_analyzer",
+            }
+          })
+        end,
+      },
 ---    -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
 ---    ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
 ---      -- ensure_installed = { "prettier", "stylua", "rustfmt" },
 ---    },
----    ["mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
+      {
+        "jay-babu/mason-null-ls.nvim",
+        config = function()
+          require("mason-null-ls").setup({
+            ensure_installed = {
+              "cmakelang",
+              "luacheck",
+              "pyflakes",
+              "autopep8",
+              "latexindent",
+              "rustfmt"
+            }
+          })
+        end,
+      },
+---    "mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
 ---      ensure_installed = { "cppdbg" },
 ---    },
   },
