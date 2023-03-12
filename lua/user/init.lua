@@ -5,29 +5,26 @@
 -- normal format is "key = value". These also handle array like data structures
 -- where a value with no key simply has an implicit numeric key
 local config = {
-
   -- Configure AstroNvim updates
   updater = {
-    remote = "origin", -- remote to use
-    channel = "nightly", -- "stable" or "nightly"
-    version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
-    branch = "main", -- branch name (NIGHTLY ONLY)
-    commit = nil, -- commit hash (NIGHTLY ONLY)
-    pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
-    skip_prompts = false, -- skip prompts about breaking changes
+    remote = "origin",     -- remote to use
+    channel = "nightly",   -- "stable" or "nightly"
+    version = "latest",    -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
+    branch = "main",       -- branch name (NIGHTLY ONLY)
+    commit = nil,          -- commit hash (NIGHTLY ONLY)
+    pin_plugins = nil,     -- nil, true, false (nil will pin plugins on stable only)
+    skip_prompts = false,  -- skip prompts about breaking changes
     show_changelog = true, -- show the changelog after performing an update
-    auto_reload = false, -- automatically reload and sync packer after a successful update
-    auto_quit = false, -- automatically quit the current session after a successful update
+    auto_reload = false,   -- automatically reload and sync packer after a successful update
+    auto_quit = false,     -- automatically quit the current session after a successful update
     -- remotes = { -- easily add new remotes to track
     --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
     --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,
     --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
     -- },
   },
-
   -- Set colorscheme to use
   colorscheme = "astrodark",
-
   -- Add highlight groups in any theme
   highlights = {
     -- init = { -- this table overrides highlights in all themes
@@ -37,26 +34,25 @@ local config = {
     --   Normal = { bg = "#000000" },
     -- },
   },
-
   -- set vim options here (vim.<first_key>.<second_key> = value)
   options = {
     opt = {
       -- set to true or false etc.
       relativenumber = true, -- sets vim.opt.relativenumber
-      number = true, -- sets vim.opt.number
-      spell = false, -- sets vim.opt.spell
-      signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-      wrap = false, -- sets vim.opt.wrap
+      number = true,         -- sets vim.opt.number
+      spell = false,         -- sets vim.opt.spell
+      signcolumn = "auto",   -- sets vim.opt.signcolumn to auto
+      wrap = false,          -- sets vim.opt.wrap
     },
     g = {
-      mapleader = " ", -- sets vim.g.mapleader
-      autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
-      cmp_enabled = true, -- enable completion at start
-      autopairs_enabled = true, -- enable autopairs at start
-      diagnostics_enabled = true, -- enable diagnostics at start
+      mapleader = " ",                   -- sets vim.g.mapleader
+      autoformat_enabled = true,         -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
+      cmp_enabled = true,                -- enable completion at start
+      autopairs_enabled = true,          -- enable autopairs at start
+      diagnostics_enabled = true,        -- enable diagnostics at start
       status_diagnostics_enabled = true, -- enable diagnostics in statusline
-      icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
-      ui_notifications_enabled = true, -- disable notifications when toggling UI elements
+      icons_enabled = true,              -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
+      ui_notifications_enabled = true,   -- disable notifications when toggling UI elements
     },
   },
   -- If you need more control, you can use the function()...end notation
@@ -83,7 +79,6 @@ local config = {
     "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
     "    ██   ████   ████   ██ ██      ██",
   },
-
   -- Default theme configuration
   default_theme = {
     -- Modify the color palette for the default theme
@@ -127,13 +122,11 @@ local config = {
       ["which-key"] = true,
     },
   },
-
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
     underline = true,
   },
-
   -- Extend LSP configuration
   lsp = {
     -- enable servers that you already have installed without mason
@@ -145,7 +138,7 @@ local config = {
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = false, -- enable or disable format on save globally
+        enabled = false,    -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
         },
@@ -192,7 +185,6 @@ local config = {
       -- },
     },
   },
-
   -- Mapping data with "desc" stored directly by vim.keymap.set().
   --
   -- Please use this mappings table to set keyboard mapping since this is the
@@ -206,7 +198,7 @@ local config = {
       ["tn"] = { ":bn<cr>", desc = "Next tab" },
       ["tp"] = { ":bp<cr>", desc = "Previous tab" },
       ["tq"] = { ":bd<cr>", desc = "Close tab" },
-      ["<leader>uD"] = { "<cmd> echo system('date')<cr>", desc = "Display Current Time"},
+      ["<leader>uD"] = { "<cmd> echo system('date')<cr>", desc = "Display Current Time" },
       -- quick save
       -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     },
@@ -216,43 +208,43 @@ local config = {
     },
   },
   plugins = {
-      -- You can disable default plugins as follows:
-      -- ["goolord/alpha-nvim"] = { disable = true },
+    -- You can disable default plugins as follows:
+    -- ["goolord/alpha-nvim"] = { disable = true },
 
-      -- You can also add new plugins here as well:
-	  -- Add plugins, the packer syntax without the "use"
-  { 
-    "AstroNvim/astrotheme",
-    lazy = false
-  },	
-  {
-    "ActivityWatch/aw-watcher-vim",
-    lazy = false
-  },
+    -- You can also add new plugins here as well:
+    -- Add plugins, the packer syntax without the "use"
+    {
+      "AstroNvim/astrotheme",
+      lazy = false
+    },
+    {
+      "ActivityWatch/aw-watcher-vim",
+      lazy = false
+    },
     {
       "iamcco/markdown-preview.nvim",
       build = function() vim.fn["mkdp#util#install"]() end,
       ft = "md"
     },
     {
-     'kkoomen/vim-doge',
-     init = function()
-       vim.g.doge_mapping = "<Leader>D"
-     end,
-      build = function() 
+      'kkoomen/vim-doge',
+      init = function()
+        vim.g.doge_mapping = "<Leader>D"
+      end,
+      build = function()
         vim.fn["doge#install"]()
         vim.g.doge_mapping = "<Leader>D"
       end,
-      config = function() 
+      config = function()
         vim.g.doge_mapping = "<Leader>D"
       end,
       event = "BufEnter"
     },
-	{
-			"ray-x/lsp_signature.nvim",
-			config = function() require("lsp_signature/setup") end,
-			event = "BufEnter"
-	},
+    {
+      "ray-x/lsp_signature.nvim",
+      config = function() require("lsp_signature/setup") end,
+      event = "BufEnter"
+    },
     {
       'paretje/nvim-man',
       ft = {
@@ -268,151 +260,152 @@ local config = {
         'nvim-lua/popup.nvim',
         'nvim-lua/plenary.nvim',
         'nvim-telescope/telescope.nvim'
-		  }
+      },
+      event = "BufEnter"
     },
     {
       "simrat39/inlay-hints.nvim",
       event = "BufEnter"
     },
-      {
-        "simrat39/rust-tools.nvim",
-        dependencies = {
-		"simrat39/inlay-hints.nvim",
-          "simrat39/inlay-hints.nvim",
-		    },
-		  config = function() require("rust_tools/rust_tools") end,
-		  event = "BufEnter"
+    {
+      "simrat39/rust-tools.nvim",
+      dependencies = {
+        "simrat39/inlay-hints.nvim",
+        "simrat39/inlay-hints.nvim",
       },
-      {
-          'SirVer/ultisnips',
-          dependencies = {'hrsh7th/nvim-cmp'},
-          event = "BufEnter"
+      config = function() require("rust_tools/rust_tools") end,
+      event = "BufEnter"
+    },
+    {
+      'SirVer/ultisnips'
+    },
+    {
+      'lervag/vimtex',
+      ft = "tex"
+    },
+    {
+      "Pocco81/auto-save.nvim",
+      config = function()
+        require("auto-save").setup {
+        }
+      end,
+      event = "BufEnter"
+    },
+    {
+      "andweeb/presence.nvim",
+      config = function() require("presence/setup") end,
+      lazy = false
+    },
+    "quangnguyen30192/cmp-nvim-ultisnips",
+    { -- override nvim-autopairs plugin
+      "hrsh7th/nvim-cmp",
+      dependencies = {
+        "quangnguyen30192/cmp-nvim-ultisnips",
+        "SirVer/ultisnips"
       },
-      { -- override nvim-autopairs plugin
-        "hrsh7th/nvim-cmp",
-        -- override the options table that is used in the `require("cmp").setup()` call
-        opts = function(_, opts)
-          -- opts parameter is the default options table
-          -- the function is lazy loaded so cmp is able to be required
-          local cmp = require "cmp"
-            -- modify the sources part of the options table
-            opts.sources = cmp.config.sources {
-              { name = "nvim_lsp", priority = 1000 },
-              { name = "luasnip", priority = 750 },
-              { name = "buffer", priority = 500 },
-              { name = "path", priority = 250 },
-            }
-            -- return the new table to be used
-            return opts
-          end,
-      },
-      {
-        'lervag/vimtex',
-        ft = ".tex"
-      },
-      {
-        'honza/vim-snippets',
-        event = "BufEnter",
-      },
-      {
-        "Pocco81/auto-save.nvim",
-        config = function()
-          require("auto-save").setup {
-          }
-        end,
-        event = "BufEnter"
-      },
-	  {
-			  "andweeb/presence.nvim",
-			  config = function() require("presence/setup") end,
-			  lazy = false
-	  },
-      -- {
-      --   "saecki/crates.nvim",
-      --   tag = "v0.3.0",
-      --   requires = { "nvim-lua/plenary.nvim" },
-      --   after = "nvim-cmp",
-      --   config = function()
-      --     require("crates").setup()
-      --     astronvim.add_cmp_source("crates", 100)
-      --   end,
-      -- },
-      -- {
-      --   "ray-x/lsp_signature.nvim",
-      --   event = "BufRead",
-      --   config = function()
-      --     require("lsp_signature").setup()
-      --   end,
-      -- },
+      -- override the options table that is used in the `require("cmp").setup()` call
+      opts = function(_, opts)
+        -- opts parameter is the default options table
+        -- the function is lazy loaded so cmp is able to be required
+        local cmp = require "cmp"
+        -- modify the sources part of the options table
+        opts.sources = cmp.config.sources {
+          { name = "nvim_lsp", priority = 1000 },
+          { name = "ultisnips", priority = 900 },
+          { name = "luasnip", priority = 750 },
+          { name = "buffer", priority = 500 },
+          { name = "path", priority = 250 },
+        }
 
-      -- We also support a key value style plugin definition similar to NvChad:
-      -- ["ray-x/lsp_signature.nvim"] = {
-      --   event = "BufRead",
-      --   config = function()
-      --     require("lsp_signature").setup()
-      --   end,
-      -- },
+        -- return the new table to be used
+        return opts
+      end
+    },
+    -- {
+    --   "saecki/crates.nvim",
+    --   tag = "v0.3.0",
+    --   requires = { "nvim-lua/plenary.nvim" },
+    --   after = "nvim-cmp",
+    --   config = function()
+    --     require("crates").setup()
+    --     astronvim.add_cmp_source("crates", 100)
+    --   end,
+    -- },
+    -- {
+    --   "ray-x/lsp_signature.nvim",
+    --   event = "BufRead",
+    --   config = function()
+    --     require("lsp_signature").setup()
+    --   end,
+    -- },
+
+    -- We also support a key value style plugin definition similar to NvChad:
+    -- ["ray-x/lsp_signature.nvim"] = {
+    --   event = "BufRead",
+    --   config = function()
+    --     require("lsp_signature").setup()
+    --   end,
+    -- },
     -- All other entries override the require("<key>").setup({...}) call for default plugins
----    ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
----      -- config variable is the default configuration table for the setup function call
----      local null_ls = require "null-ls"
----
----      -- Check supported formatters and linters
----      -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
----      -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
----      config.sources = {
----        -- Set a formatter
----        -- null_ls.builtins.formatting.stylua,
----        -- null_ls.builtins.formatting.prettier,
----        null_ls.builtins.formatting.rustfmt,
----      }
----      return config -- return final config table
----    end,
----    treesitter = { -- overrides `require("treesitter").setup(...)`
----      -- ensure_installed = { "lua" },
----    },
----    -- use mason-lspconfig to configure LSP installations
----    ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
----      -- ensure_installed = { "sumneko_lua" },
----    },
---       {
---         "williamboman/mason-lspconfig.nvim",
---         config = function(plugin, opts)
---           require("plugins.configs.mason-lspconfig")(plugin, {
---             ensure_installed = {
---               "clangd",
---               "pyright",
---               "rust_analyzer",
---             }
---           })
---         end,
---         lazy = false
---       },
--- ---    -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
--- ---    ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
--- ---      -- ensure_installed = { "prettier", "stylua", "rustfmt" },
--- ---    },
---       {
---         "jay-babu/mason-null-ls.nvim",
---         config = function(plugin, opts)
---           require("plugins.configs.mason-null-ls")(plugin,{
---             ensure_installed = {
---               "cmakelang",
---               "luacheck",
---               "pyflakes",
---               "autopep8",
---               "latexindent",
---               "rustfmt"
---             }
---           })
---         end,
---         lazy = false
---       },
----    "mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
----      ensure_installed = { "cppdbg" },
----    },
+    ---    ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
+    ---      -- config variable is the default configuration table for the setup function call
+    ---      local null_ls = require "null-ls"
+    ---
+    ---      -- Check supported formatters and linters
+    ---      -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
+    ---      -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
+    ---      config.sources = {
+    ---        -- Set a formatter
+    ---        -- null_ls.builtins.formatting.stylua,
+    ---        -- null_ls.builtins.formatting.prettier,
+    ---        null_ls.builtins.formatting.rustfmt,
+    ---      }
+    ---      return config -- return final config table
+    ---    end,
+    ---    treesitter = { -- overrides `require("treesitter").setup(...)`
+    ---      -- ensure_installed = { "lua" },
+    ---    },
+    ---    -- use mason-lspconfig to configure LSP installations
+    ---    ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
+    ---      -- ensure_installed = { "sumneko_lua" },
+    ---    },
+    --       {
+    --         "williamboman/mason-lspconfig.nvim",
+    --         config = function(plugin, opts)
+    --           require("plugins.configs.mason-lspconfig")(plugin, {
+    --             ensure_installed = {
+    --               "clangd",
+    --               "pyright",
+    --               "rust_analyzer",
+    --             }
+    --           })
+    --         end,
+    --         lazy = false
+    --       },
+    -- ---    -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
+    -- ---    ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
+    -- ---      -- ensure_installed = { "prettier", "stylua", "rustfmt" },
+    -- ---    },
+    --       {
+    --         "jay-babu/mason-null-ls.nvim",
+    --         config = function(plugin, opts)
+    --           require("plugins.configs.mason-null-ls")(plugin,{
+    --             ensure_installed = {
+    --               "cmakelang",
+    --               "luacheck",
+    --               "pyflakes",
+    --               "autopep8",
+    --               "latexindent",
+    --               "rustfmt"
+    --             }
+    --           })
+    --         end,
+    --         lazy = false
+    --       },
+    ---    "mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
+    ---      ensure_installed = { "cppdbg" },
+    ---    },
   },
-
   -- LuaSnip Options
   luasnip = {
     -- Extend filetypes
@@ -425,7 +418,6 @@ local config = {
       paths = {},
     },
   },
-
   -- CMP Source Priorities
   -- modify here the priorities of default cmp sources
   -- higher value == higher priority
@@ -441,7 +433,6 @@ local config = {
       path = 250,
     },
   },
-
   -- Modify which-key registration (Use this with mappings table in the above.)
   ["which-key"] = {
     -- Add bindings which show up as group name
@@ -457,7 +448,6 @@ local config = {
       },
     },
   },
-
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here

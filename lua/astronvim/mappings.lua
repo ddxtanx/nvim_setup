@@ -30,7 +30,6 @@ maps.n["gx"] = { utils.system_open, desc = "Open the file under cursor with syst
 maps.n["<C-s>"] = { "<cmd>w!<cr>", desc = "Force write" }
 maps.n["<C-q>"] = { "<cmd>q!<cr>", desc = "Force quit" }
 maps.n["|"] = { "<cmd>vsplit<cr>", desc = "Vertical Split" }
-maps.n["\\"] = { "<cmd>split<cr>", desc = "Horizontal Split" }
 
 -- Plugin Manager
 maps.n["<leader>p"] = sections.p
