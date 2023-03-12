@@ -24,7 +24,7 @@ local config = {
     -- },
   },
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  colorscheme = "tokyonight-night",
   -- Add highlight groups in any theme
   highlights = {
     -- init = { -- this table overrides highlights in all themes
@@ -213,10 +213,7 @@ local config = {
 
     -- You can also add new plugins here as well:
     -- Add plugins, the packer syntax without the "use"
-    {
-      "AstroNvim/astrotheme",
-      lazy = false
-    },
+    -- require("user/plugins/community"),
     {
       "ActivityWatch/aw-watcher-vim",
       lazy = false
@@ -321,6 +318,14 @@ local config = {
         return opts
       end
     },
+    {
+      "ggandor/leap.nvim",
+      config = function() 
+        require('leap').add_default_mappings()
+      end,
+      event = "BufEnter"
+    },
+    'folke/tokyonight.nvim', 
     -- {
     --   "saecki/crates.nvim",
     --   tag = "v0.3.0",
