@@ -320,12 +320,13 @@ local config = {
     },
     {
       "ggandor/leap.nvim",
-      config = function() 
+      config = function()
         require('leap').add_default_mappings()
       end,
       event = "BufEnter"
     },
-    'folke/tokyonight.nvim', 
+    'folke/tokyonight.nvim',
+    require("user/astrocommunity")
     -- {
     --   "saecki/crates.nvim",
     --   tag = "v0.3.0",
