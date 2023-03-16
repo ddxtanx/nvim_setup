@@ -1,6 +1,11 @@
 return {
   "AstroNvim/astrocommunity",
-  { import = "astrocommunity.pack.rust" },
+  {
+    import = "astrocommunity.pack.rust",
+    opts = {
+      
+    },
+  },
   { import = "astrocommunity.pack.cmake" },
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.lua" },
@@ -16,4 +21,39 @@ return {
   { import = "astrocommunity.note-taking.neorg" },
   { import = "astrocommunity.project.nvim-spectre" },
   { import = "astrocommunity.test.neotest" },
+  {
+    "simrat39/rust-tools.nvim",
+    opts = {
+      server = {
+        settings = {
+          -- to enable rust-analyzer settings visit:
+          -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+          ["rust-analyzer"] = {
+            -- enable clippy on save
+            cargo = {
+                features = "all",
+            },
+            checkOnSave = {
+                command = "clippy",
+            },
+            diagnostics = {
+                enable = true,
+                experimental = {
+                    enable = true,
+                },
+            },
+
+            inlayHints = {
+                typeHints = {
+                    enable =  true,
+                },
+                chainingHints = {
+                    enable = true,
+                },
+            },
+          },
+        },
+      },
+    }
+  }
 }

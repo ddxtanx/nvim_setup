@@ -132,8 +132,7 @@ local config = {
     -- enable servers that you already have installed without mason
     servers = {
       "pyright",
-      "clangd",
-      "rust_analyzer",
+      "clangd"
     },
     formatting = {
       -- control auto formatting on save
@@ -250,15 +249,14 @@ local config = {
       "simrat39/inlay-hints.nvim",
       ft = "rs"
     },
-    {
-      "simrat39/rust-tools.nvim",
-      dependencies = {
-        "simrat39/inlay-hints.nvim",
-        "simrat39/inlay-hints.nvim",
-      },
-      config = function() require("rust_tools/rust_tools") end,
-      ft = "rs"
-    },
+    -- {
+    --   "simrat39/rust-tools.nvim",
+    --   dependencies = {
+    --     "simrat39/inlay-hints.nvim",
+    --   },
+    --   config = function() require("rust_tools/rust_tools") end,
+    --   lazy = false,
+    -- },
     {
       'SirVer/ultisnips'
     },
@@ -421,7 +419,6 @@ local config = {
     --             ensure_installed = {
     --               "clangd",
     --               "pyright",
-    --               "rust_analyzer",
     --             }
     --           })
     --         end,

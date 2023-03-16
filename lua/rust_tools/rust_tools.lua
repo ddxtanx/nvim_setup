@@ -62,7 +62,6 @@ local opts = {
       auto_focus = false,
     },
   },
-  
   -- all the opts to send to nvim-lspconfig
   -- these override the defaults set by rust-tools.nvim
   -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
@@ -91,7 +90,6 @@ local opts = {
             experimental = {
                 enable = true,
             },
- 
         },
 
         inlayHints = {
