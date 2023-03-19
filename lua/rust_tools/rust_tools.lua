@@ -2,6 +2,10 @@ local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-
 local codelldb_path = extension_path .. 'adapter/codelldb'
 local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
 
+---- Configure LSP through rust-tools.nvim plugin.
+-- rust-tools will configure and enable certain LSP features for us.
+-- See https://github.com/simrat39/rust-tools.nvim#configuration
+local rt = require("rust-tools")
 require("inlay-hints").setup({
   only_current_line = true,
 
@@ -10,10 +14,7 @@ require("inlay-hints").setup({
   }
 })
 local ih = require("inlay-hints")
----- Configure LSP through rust-tools.nvim plugin.
--- rust-tools will configure and enable certain LSP features for us.
--- See https://github.com/simrat39/rust-tools.nvim#configuration
-local rt = require("rust-tools")
+
 
 local opts = {
   tools = { -- rust-tools options
@@ -61,7 +62,6 @@ local opts = {
       auto_focus = false,
     },
   },
-  
   -- all the opts to send to nvim-lspconfig
   -- these override the defaults set by rust-tools.nvim
   -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
@@ -90,7 +90,6 @@ local opts = {
             experimental = {
                 enable = true,
             },
- 
         },
 
         inlayHints = {
