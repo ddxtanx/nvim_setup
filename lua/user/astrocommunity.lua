@@ -2,16 +2,15 @@ return {
   "AstroNvim/astrocommunity",
   {
     import = "astrocommunity.pack.rust",
-    opts = {
-      
-    },
   },
   { import = "astrocommunity.pack.cmake" },
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.colorscheme.tokyonight", enable=true },
-  { import = "astrocommunity.completion.copilot-lua-cmp" },
+  {
+    import = "astrocommunity.completion.copilot-lua"
+  },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
@@ -54,6 +53,16 @@ return {
           },
         },
       },
+    }
+  },
+  {
+    "copilot.lua",
+    opts = {
+      suggestion = {
+        keymap = {
+          accept = "<C-CR>",
+        }
+      }
     }
   }
 }
