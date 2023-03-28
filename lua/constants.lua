@@ -1,4 +1,4 @@
-vim.g.vimtex_view_method = 'skim'
+require('machine_specific_configuration')
 vim.cmd([[
   set conceallevel=1
 ]])
