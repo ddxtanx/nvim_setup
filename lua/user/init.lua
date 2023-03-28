@@ -209,7 +209,10 @@ local config = {
   plugins = {
     -- You can disable default plugins as follows:
     -- ["goolord/alpha-nvim"] = { disable = true },
-
+    {
+      "lambdalisue/suda.vim",
+      event = "BufEnter",
+    },
     {
       'f-person/git-blame.nvim',
       event = "BufEnter"
