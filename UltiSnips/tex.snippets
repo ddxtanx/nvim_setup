@@ -36,6 +36,91 @@ endglobal
 # ENVIRONMENT #
 ###############
 
+snippet template "Latex Template" b
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Lines starting with % are comments, which are ignored.
+% % This is a handy way of indicating the date and version of
+% % your document, to wit:
+% %
+% % LaTeX sample file
+% % Modified March, 2002
+% %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Title and author(s)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{$1}
+\author{Garrett Credi}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %
+% % The next command allows your in import encapsulated
+% % postscript files, .epsf or .eps files, which
+% % contain vector graphic image data.
+% %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % We use newtheorem to define theorem-like structures
+% %
+% % Here are some common ones. . .
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %   The first thanks indicates your affiliation
+% %
+% %  Just the name here.
+% %
+% % Your mailing address goes at the end.
+% %
+% % \thanks is also how you indicate grant support
+% %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% $ The next command ensures the margins are 1 inch on
+% % all sides.
+% %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{geometry}[margin=1in]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % The next command includes all important libraries for math papers
+% %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amssymb,amsthm,amsfonts,amscd}
+\usepackage{tikz, tikz-cd}
+
+
+\begin{document}
+\newpage
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% abstract, keywords and Subject classification are optional.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+\end{abstract}
+
+% Most people don't use these, so they are "commented out"
+% by starting the lines with a "%"
+%\begin{keywords}
+%   \LaTeX, typesetting
+%\end{keywords}
+
+%\begin{AMS}
+%   50C60, 18C25
+%\end{AMS}
+
+%%%%%%%%%%%%%%%%%%%%%%
+% % Here is the start of the Text
+%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+endsnippet
 
 snippet beg "begin{} / end{}" bi
 \begin{$1}
