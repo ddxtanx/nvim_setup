@@ -204,7 +204,7 @@ M.on_attach = function(client, bufnr)
         callback = function()
           local autoformat_enabled = vim.b.autoformat_enabled
           if autoformat_enabled == nil then autoformat_enabled = vim.g.autoformat_enabled end
-          if autoformat_enabled then
+          if autoformat_enabled and ((not autoformat.filter) or autoformat.filter(bufnr)) then
             vim.lsp.buf.format(require("astronvim.utils").extend_tbl(M.format_opts, { bufnr = bufnr }))
           end
         end,
@@ -288,6 +288,13 @@ M.on_attach = function(client, bufnr)
     }
   end
 
+  if capabilities.semanticTokensProvider and vim.lsp.semantic_tokens then
+    lsp_mappings.n["<leader>uY"] = {
+      function() require("astronvim.utils.ui").toggle_buffer_semantic_tokens(bufnr) end,
+      desc = "Toggle LSP semantic highlight (buffer)",
+    }
+  end
+
   if is_available "telescope.nvim" then -- setup telescope mappings if available
     if lsp_mappings.n.gd then lsp_mappings.n.gd[1] = function() require("telescope.builtin").lsp_definitions() end end
     if lsp_mappings.n.gI then
@@ -344,6 +351,10 @@ function M.config(server_name)
     if schemastore_avail then
       lsp_opts.settings = { json = { schemas = schemastore.json.schemas(), validate = { enable = true } } }
     end
+  end
+  if server_name == "yamlls" then -- by default add yaml schemas
+    local schemastore_avail, schemastore = pcall(require, "schemastore")
+    if schemastore_avail then lsp_opts.settings = { yaml = { schemas = schemastore.yaml.schemas() } } end
   end
   if server_name == "lua_ls" then -- by default initialize neodev and disable third party checking
     pcall(require, "neodev")

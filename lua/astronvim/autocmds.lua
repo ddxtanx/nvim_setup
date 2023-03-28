@@ -59,11 +59,11 @@ autocmd({ "VimEnter", "FileType", "BufEnter", "WinEnter" }, {
 })
 
 local view_group = augroup("auto_view", { clear = true })
-autocmd("BufWinLeave", {
+autocmd({ "BufWinLeave", "BufWritePost", "WinLeave" }, {
   desc = "Save view with mkview for real files",
   group = view_group,
   callback = function(event)
-    if vim.b[event.buf].view_activated then vim.cmd.mkview() end
+    if vim.b[event.buf].view_activated then vim.cmd.mkview { mods = { emsg_silent = true } } end
   end,
 })
 autocmd("BufWinEnter", {

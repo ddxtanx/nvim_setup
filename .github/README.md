@@ -9,7 +9,11 @@
   ·
   <a href="https://astronvim.com/#%EF%B8%8F-configuration">Configure</a>
   ·
+  <a href="https://github.com/AstroNvim/astrocommunity">Community Plugins</a>
+  ·
   <a href="https://astronvim.com">Docs</a>
+  ·
+  <a href="https://discord.gg/AstroNvim">Discord</a>
 </h4>
 
 <p align="center">
@@ -145,6 +149,10 @@ There have been some great review videos released by members of the community! H
 
 - [Why I'm quitting VIM by Carlos Mafla](https://www.youtube.com/watch?v=71GDopdc9rw) (Content By: [@gigo6000](https://github.com/gigo6000))
 - [Astro Vim - All in one Nvim config!! by John McBride](https://www.youtube.com/watch?v=JQLZ7NJRTEo) (Content By: [@jpmcb](https://github.com/jpmcb))
+
+## 🚀 Contributing
+
+If you plan to contribute, please check the [contribution guidelines](CONTRIBUTING.md) first.
 
 ## ⭐ Credits
 
