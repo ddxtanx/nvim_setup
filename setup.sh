@@ -1,11 +1,12 @@
 #!/bin/bash
+
 code_lldb_path=$(find ./lua/user/dap -name codelldb | wc -l)
 
 if [ $code_lldb_path -eq 0 ]
 then
   if command -v code &> /dev/null
   then
-    arch_val=$(arch)
+    arch_val=$(uname -m)
     if [ $arch_val == "x86_64" ]
     then
       sysname=$(uname)
