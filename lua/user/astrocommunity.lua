@@ -59,9 +59,12 @@ return {
     "copilot.lua",
     opts = {
       suggestion = {
+        enabled = true,
+        auto_trigger = true,
         keymap = {
-          accept = "<C-CR>",
-        }
+          accept = "<C-S-CR>",
+          accept_line = "<C-CR>"
+        },
       }
     }
   }
