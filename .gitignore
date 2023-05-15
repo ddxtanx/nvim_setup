@@ -10,8 +10,6 @@ spell
 .luarc.json
 lua/user/dap/codelldb
 lua/machine_specific_configuration.lua
-=======
-
 # Global gitignore
 # ----------------
 
