@@ -7,16 +7,16 @@
 local config = {
   -- Configure AstroNvim updates
   updater = {
-    remote = "origin",     -- remote to use
-    channel = "nightly",   -- "stable" or "nightly"
-    version = "latest",    -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
-    branch = "main",       -- branch name (NIGHTLY ONLY)
-    commit = nil,          -- commit hash (NIGHTLY ONLY)
-    pin_plugins = nil,     -- nil, true, false (nil will pin plugins on stable only)
-    skip_prompts = false,  -- skip prompts about breaking changes
+    remote = "origin", -- remote to use
+    channel = "nightly", -- "stable" or "nightly"
+    version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
+    branch = "main", -- branch name (NIGHTLY ONLY)
+    commit = nil, -- commit hash (NIGHTLY ONLY)
+    pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
+    skip_prompts = false, -- skip prompts about breaking changes
     show_changelog = true, -- show the changelog after performing an update
-    auto_reload = false,   -- automatically reload and sync packer after a successful update
-    auto_quit = false,     -- automatically quit the current session after a successful update
+    auto_reload = false, -- automatically reload and sync packer after a successful update
+    auto_quit = false, -- automatically quit the current session after a successful update
     -- remotes = { -- easily add new remotes to track
     --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
     --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,
@@ -39,20 +39,20 @@ local config = {
     opt = {
       -- set to true or false etc.
       relativenumber = true, -- sets vim.opt.relativenumber
-      number = true,         -- sets vim.opt.number
-      spell = false,         -- sets vim.opt.spell
-      signcolumn = "auto",   -- sets vim.opt.signcolumn to auto
-      wrap = false,          -- sets vim.opt.wrap
+      number = true, -- sets vim.opt.number
+      spell = false, -- sets vim.opt.spell
+      signcolumn = "auto", -- sets vim.opt.signcolumn to auto
+      wrap = false, -- sets vim.opt.wrap
     },
     g = {
-      mapleader = " ",                   -- sets vim.g.mapleader
-      autoformat_enabled = true,         -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
-      cmp_enabled = true,                -- enable completion at start
-      autopairs_enabled = true,          -- enable autopairs at start
-      diagnostics_enabled = true,        -- enable diagnostics at start
+      mapleader = " ", -- sets vim.g.mapleader
+      autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
+      cmp_enabled = true, -- enable completion at start
+      autopairs_enabled = true, -- enable autopairs at start
+      diagnostics_enabled = true, -- enable diagnostics at start
       status_diagnostics_enabled = true, -- enable diagnostics in statusline
-      icons_enabled = true,              -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
-      ui_notifications_enabled = true,   -- disable notifications when toggling UI elements
+      icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
+      ui_notifications_enabled = true, -- disable notifications when toggling UI elements
     },
   },
   -- If you need more control, you can use the function()...end notation
@@ -131,12 +131,12 @@ local config = {
   lsp = {
     -- enable servers that you already have installed without mason
     servers = {
-      "clangd"
+      "clangd",
     },
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = false,    -- enable or disable format on save globally
+        enabled = false, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
         },
@@ -209,48 +209,58 @@ local config = {
     -- You can disable default plugins as follows:
     -- ["goolord/alpha-nvim"] = { disable = true },
     {
+      "kiyoon/jupynium.nvim",
+      build = "pip3 install --user .",
+      event = {
+        "BufEnter *.py",
+        "BufEnter *.ipynb"
+      }
+      -- build = "conda run --no-capture-output -n jupynium pip install .",
+      -- enabled = vim.fn.isdirectory(vim.fn.expand "~/miniconda3/envs/jupynium"),
+    },
+    {
       "lambdalisue/suda.vim",
       event = "BufEnter",
     },
     {
-      'f-person/git-blame.nvim',
-      event = "BufEnter"
+      "f-person/git-blame.nvim",
+      event = "BufEnter",
     },
     {
       "ActivityWatch/aw-watcher-vim",
-      lazy = false
+      lazy = false,
     },
     {
       "iamcco/markdown-preview.nvim",
       build = function() vim.fn["mkdp#util#install"]() end,
-      ft = "md"
+      ft = "md",
     },
     {
       "ray-x/lsp_signature.nvim",
-      config = function() require("lsp_signature/setup") end,
-      event = "BufEnter"
+      config = function() require "lsp_signature/setup" end,
+      event = "BufEnter",
     },
     {
-      'paretje/nvim-man',
+      "paretje/nvim-man",
       ft = {
         "c",
         "cpp",
         "h",
-        "hpp"
-      }
+        "hpp",
+      },
     },
     {
-      'EthanJWright/vs-tasks.nvim',
+      "EthanJWright/vs-tasks.nvim",
       dependencies = {
-        'nvim-lua/popup.nvim',
-        'nvim-lua/plenary.nvim',
-        'nvim-telescope/telescope.nvim'
+        "nvim-lua/popup.nvim",
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope.nvim",
       },
-      keys = "<leader>v"
+      keys = "<leader>v",
     },
     {
       "simrat39/inlay-hints.nvim",
-      ft = "rs"
+      ft = "rs",
     },
     -- {
     --   "simrat39/rust-tools.nvim",
@@ -261,31 +271,28 @@ local config = {
     --   lazy = false,
     -- },
     {
-      'SirVer/ultisnips'
+      "SirVer/ultisnips",
     },
     {
-      'lervag/vimtex',
-      ft = "tex"
+      "lervag/vimtex",
+      ft = "tex",
     },
     {
       "Pocco81/auto-save.nvim",
-      config = function()
-        require("auto-save").setup {
-        }
-      end,
-      event = "BufEnter"
+      config = function() require("auto-save").setup {} end,
+      event = "BufEnter",
     },
     {
       "andweeb/presence.nvim",
-      config = function() require("presence/setup") end,
-      lazy = false
+      config = function() require "presence/setup" end,
+      lazy = false,
     },
     "quangnguyen30192/cmp-nvim-ultisnips",
     { -- override nvim-autopairs plugin
       "hrsh7th/nvim-cmp",
       dependencies = {
         "quangnguyen30192/cmp-nvim-ultisnips",
-        "SirVer/ultisnips"
+        "SirVer/ultisnips",
       },
       -- override the options table that is used in the `require("cmp").setup()` call
       opts = function(_, opts)
@@ -303,25 +310,23 @@ local config = {
 
         -- return the new table to be used
         return opts
-      end
+      end,
     },
     {
       "ggandor/leap.nvim",
-      config = function()
-        require('leap').add_default_mappings()
-      end,
-      event = "BufEnter"
+      config = function() require("leap").add_default_mappings() end,
+      event = "BufEnter",
     },
-    'folke/tokyonight.nvim',
-    require("user/astrocommunity"),
+    "folke/tokyonight.nvim",
+    require "user/astrocommunity",
     {
       "nvim-treesitter/nvim-treesitter-textobjects",
       dependencies = {
-        "nvim-treesitter/nvim-treesitter"
+        "nvim-treesitter/nvim-treesitter",
       },
       event = "BufEnter",
-      config = function() 
-        require'nvim-treesitter.configs'.setup {
+      config = function()
+        require("nvim-treesitter.configs").setup {
           textobjects = {
             select = {
               enable = true,
@@ -348,9 +353,9 @@ local config = {
               -- and should return the mode ('v', 'V', or '<c-v>') or a table
               -- mapping query_strings to modes.
               selection_modes = {
-                ['@parameter.outer'] = 'v', -- charwise
-                ['@function.outer'] = 'V', -- linewise
-                ['@class.outer'] = '<c-v>', -- blockwise
+                ["@parameter.outer"] = "v", -- charwise
+                ["@function.outer"] = "V", -- linewise
+                ["@class.outer"] = "<c-v>", -- blockwise
               },
               -- If you set this to `true` (default is `false`) then any textobject is
               -- extended to include preceding or succeeding whitespace. Succeeding
@@ -365,8 +370,8 @@ local config = {
             },
           },
         }
-      end
-    }
+      end,
+    },
     -- {
     --   "saecki/crates.nvim",
     --   tag = "v0.3.0",
@@ -513,10 +518,10 @@ local config = {
     require "keymaps"
   end,
   dap = {
-    adapters = require("user/dap/adapters"),
-    configurations = require("user/dap/configurations"),
-    defaults = require("user/dap/defaults")
-  }
+    adapters = require "user/dap/adapters",
+    configurations = require "user/dap/configurations",
+    defaults = require "user/dap/defaults",
+  },
 }
 
 -- Set completeopt to have a better completion experience
@@ -528,6 +533,5 @@ vim.o.completeopt = "menuone,noinsert,noselect"
 
 -- Avoid showing extra messages when using completion
 vim.opt.shortmess = vim.opt.shortmess + "c"
-
 
 return config
