@@ -233,7 +233,7 @@ local config = {
     {
       "iamcco/markdown-preview.nvim",
       build = function() vim.fn["mkdp#util#install"]() end,
-      ft = "md",
+      ft = "markdown",
     },
     {
       "ray-x/lsp_signature.nvim",
@@ -278,6 +278,10 @@ local config = {
       ft = "tex",
     },
     {
+      'mustache/vim-mustache-handlebars',
+      ft = "hbs"
+    },
+    {
       "Pocco81/auto-save.nvim",
       config = function() require("auto-save").setup {} end,
       event = "BufEnter",
@@ -317,7 +321,6 @@ local config = {
       config = function() require("leap").add_default_mappings() end,
       event = "BufEnter",
     },
-    "folke/tokyonight.nvim",
     require "user/astrocommunity",
     {
       "nvim-treesitter/nvim-treesitter-textobjects",
@@ -372,89 +375,6 @@ local config = {
         }
       end,
     },
-    -- {
-    --   "saecki/crates.nvim",
-    --   tag = "v0.3.0",
-    --   requires = { "nvim-lua/plenary.nvim" },
-    --   after = "nvim-cmp",
-    --   config = function()
-    --     require("crates").setup()
-    --     astronvim.add_cmp_source("crates", 100)
-    --   end,
-    -- },
-    -- {
-    --   "ray-x/lsp_signature.nvim",
-    --   event = "BufRead",
-    --   config = function()
-    --     require("lsp_signature").setup()
-    --   end,
-    -- },
-
-    -- We also support a key value style plugin definition similar to NvChad:
-    -- ["ray-x/lsp_signature.nvim"] = {
-    --   event = "BufRead",
-    --   config = function()
-    --     require("lsp_signature").setup()
-    --   end,
-    -- },
-    -- All other entries override the require("<key>").setup({...}) call for default plugins
-    ---    ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
-    ---      -- config variable is the default configuration table for the setup function call
-    ---      local null_ls = require "null-ls"
-    ---
-    ---      -- Check supported formatters and linters
-    ---      -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-    ---      -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-    ---      config.sources = {
-    ---        -- Set a formatter
-    ---        -- null_ls.builtins.formatting.stylua,
-    ---        -- null_ls.builtins.formatting.prettier,
-    ---        null_ls.builtins.formatting.rustfmt,
-    ---      }
-    ---      return config -- return final config table
-    ---    end,
-    ---    treesitter = { -- overrides `require("treesitter").setup(...)`
-    ---      -- ensure_installed = { "lua" },
-    ---    },
-    ---    -- use mason-lspconfig to configure LSP installations
-    ---    ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
-    ---      -- ensure_installed = { "sumneko_lua" },
-    ---    },
-    --       {
-    --         "williamboman/mason-lspconfig.nvim",
-    --         config = function(plugin, opts)
-    --           require("plugins.configs.mason-lspconfig")(plugin, {
-    --             ensure_installed = {
-    --               "clangd",
-    --               "pyright",
-    --             }
-    --           })
-    --         end,
-    --         lazy = false
-    --       },
-    -- ---    -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
-    -- ---    ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
-    -- ---      -- ensure_installed = { "prettier", "stylua", "rustfmt" },
-    -- ---    },
-    --       {
-    --         "jay-babu/mason-null-ls.nvim",
-    --         config = function(plugin, opts)
-    --           require("plugins.configs.mason-null-ls")(plugin,{
-    --             ensure_installed = {
-    --               "cmakelang",
-    --               "luacheck",
-    --               "pyflakes",
-    --               "autopep8",
-    --               "latexindent",
-    --               "rustfmt"
-    --             }
-    --           })
-    --         end,
-    --         lazy = false
-    --       },
-    ---    "mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
-    ---      ensure_installed = { "cppdbg" },
-    ---    },
   },
   -- LuaSnip Options
   luasnip = {

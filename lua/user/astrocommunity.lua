@@ -7,7 +7,7 @@ return {
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.json" },
-  { import = "astrocommunity.colorscheme.tokyonight", enable=true },
+  { import = "astrocommunity.colorscheme.tokyonight-nvim", enable=true },
   {
     import = "astrocommunity.completion.copilot-lua"
   },
