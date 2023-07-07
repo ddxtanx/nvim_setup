@@ -14,7 +14,6 @@ return {
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
-  { import = "astrocommunity.editing-support.treej" },
   { import = "astrocommunity.file-explorer.oil-nvim" },
   { import = "astrocommunity.media.pets-nvim" },
   { import = "astrocommunity.note-taking.neorg" },
