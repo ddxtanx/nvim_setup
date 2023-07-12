@@ -8,9 +8,9 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.colorscheme.tokyonight-nvim", enable=true },
-  {
-    import = "astrocommunity.completion.copilot-lua"
-  },
+  -- {
+    -- import = "astrocommunity.completion.copilot-lua"
+  -- },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
@@ -54,17 +54,17 @@ return {
       },
     }
   },
-  {
-    "copilot.lua",
-    opts = {
-      suggestion = {
-        enabled = true,
-        auto_trigger = true,
-        keymap = {
-          accept = "<C-S-CR>",
-          accept_line = "<C-CR>"
-        },
-      }
-    }
-  }
+  -- {
+  --   "copilot.lua",
+  --   opts = {
+  --     suggestion = {
+  --       enabled = true,
+  --       auto_trigger = true,
+  --       keymap = {
+  --         accept = "<C-S-CR>",
+  --         accept_line = "<C-CR>"
+  --       },
+  --     }
+  --   }
+  -- }
 }
