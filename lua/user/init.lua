@@ -219,6 +219,12 @@ local config = {
       -- enabled = vim.fn.isdirectory(vim.fn.expand "~/miniconda3/envs/jupynium"),
     },
     {
+      'akinsho/git-conflict.nvim', version = "*", config = true,
+      event = {
+        "BufEnter"
+      }
+    },
+    {
       "lambdalisue/suda.vim",
       event = "BufEnter",
     },
