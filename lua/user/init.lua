@@ -300,7 +300,6 @@ local config = {
         auto_update         = true,
         neovim_image_text   = ">>>Emacs",
         main_image          = "neovim",
-        log_level           = "debug",
         debounce_timeout    = 10,
         enable_line_number  = true,
         buttons             = true,
