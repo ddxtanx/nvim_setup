@@ -299,8 +299,8 @@ local config = {
       },
       event = "BufEnter",
       build = function() require("fundo").install() end,
+      setup = function() require("fundo").setup() end,
     },
-
     {
     "andweeb/presence.nvim",
     lazy = false,
