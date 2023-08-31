@@ -293,6 +293,15 @@ local config = {
       event = "BufEnter",
     },
     {
+      "kevinhwang91/nvim-fundo",
+      dependencies = {
+        "kevinhwang91/promise-async",
+      },
+      event = "BufEnter",
+      build = function() require("fundo").install() end,
+    },
+
+    {
     "andweeb/presence.nvim",
     lazy = false,
     config = function()
@@ -315,7 +324,7 @@ local config = {
         line_number_text    = "Line %s out of %s"
     })
     end
-    },   
+    },
     "quangnguyen30192/cmp-nvim-ultisnips",
     { -- override nvim-autopairs plugin
       "hrsh7th/nvim-cmp",
