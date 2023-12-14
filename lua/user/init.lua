@@ -344,6 +344,9 @@ local config = {
           { name = "buffer", priority = 500 },
           { name = "path", priority = 250 },
         }
+        -- Remove tab binding
+        opts.mapping["<Tab>"] = nil
+        
 
         -- return the new table to be used
         return opts
