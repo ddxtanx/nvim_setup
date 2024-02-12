@@ -280,6 +280,9 @@ local config = {
       "SirVer/ultisnips",
     },
     {
+      "mattn/emmet-vim"
+    },
+    {
       "lervag/vimtex",
       ft = "tex",
     },
@@ -407,7 +410,7 @@ local config = {
               -- and should return true of false
               include_surrounding_whitespace = true,
             },
-          },
+          }
         }
       end,
     },
