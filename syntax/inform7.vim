@@ -1,1 +1,0 @@
-../inform7-syntax/syntax/inform7.vim
