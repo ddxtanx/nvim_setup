@@ -328,6 +328,7 @@ local config = {
       })
       end
     },
+    { "nvim-neotest/nvim-nio" }, 
     "quangnguyen30192/cmp-nvim-ultisnips",
     { -- override nvim-autopairs plugin
       "hrsh7th/nvim-cmp",
