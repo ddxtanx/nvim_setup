@@ -329,6 +329,12 @@ local config = {
       end
     },
     { "nvim-neotest/nvim-nio" }, 
+    {
+      "AstroNvim/astrolsp",
+      opts = {
+        -- set configuration options  as described below
+      }
+    },
     "quangnguyen30192/cmp-nvim-ultisnips",
     { -- override nvim-autopairs plugin
       "hrsh7th/nvim-cmp",

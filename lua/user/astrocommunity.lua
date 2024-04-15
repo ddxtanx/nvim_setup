@@ -17,7 +17,6 @@ return {
   { import = "astrocommunity.file-explorer.oil-nvim" },
   { import = "astrocommunity.media.pets-nvim" },
   { import = "astrocommunity.note-taking.neorg" },
-  { import = "astrocommunity.project.nvim-spectre" },
   { import = "astrocommunity.test.neotest" },
   {
     "simrat39/rust-tools.nvim",
