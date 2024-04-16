@@ -1,3 +1,0 @@
-[submodule "inform7-syntax"]
-	path = inform7-syntax
-	url = https://github.com/lesliev/vim-inform7
