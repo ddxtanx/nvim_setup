@@ -1,6 +1,6 @@
 #!/bin/bash
 
-code_lldb_path=$(find ./lua/user/dap -name codelldb | wc -l)
+code_lldb_path=$(find ./lua/plugins/dap -name codelldb | wc -l)
 
 if [ $code_lldb_path -eq 0 ]
 then
@@ -34,7 +34,7 @@ then
       fi
     fi
     code --install-extension /tmp/codelldb.vsix
-    cp -r $HOME/.vscode/extensions/vadimcn.vscode-lldb* ./lua/user/dap/codelldb
+    cp -r $HOME/.vscode/extensions/vadimcn.vscode-lldb* ./lua/plugins/dap/codelldb
 
   else
     echo "The codelldb extension is not installed, please either install it manually or install vscode for automated installation."
