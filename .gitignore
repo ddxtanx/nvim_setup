@@ -1,4 +1,5 @@
 # Project gitignore
+lazy-lock.json
 .luarc.json
 after
 coc-settings.json
