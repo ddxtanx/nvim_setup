@@ -50,6 +50,19 @@ return {
       luasnip.filetype_extend("javascript", { "javascriptreact" })
     end,
   },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent = true,
+      style = "storm",
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
+  },
 
   {
     "windwp/nvim-autopairs",
