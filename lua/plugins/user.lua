@@ -179,11 +179,6 @@ return {
     ft = "hbs",
   },
   {
-    "Pocco81/auto-save.nvim",
-    config = function() require("auto-save").setup {} end,
-    event = "BufEnter",
-  },
-  {
     "kevinhwang91/nvim-fundo",
     dependencies = {
       "kevinhwang91/promise-async",
