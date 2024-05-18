@@ -188,6 +188,13 @@ return {
     setup = function() require("fundo").setup() end,
   },
   {
+    "tris203/precognition.nvim",
+    event = "BufEnter",
+    config = {
+      startVisible = true,
+    },
+  },
+  {
     "andweeb/presence.nvim",
     enabled = true,
     lazy = false,
