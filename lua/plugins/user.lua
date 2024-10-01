@@ -172,7 +172,19 @@ return {
   },
   {
     "lervag/vimtex",
-    ft = "tex",
+    lazy = false,
+    init = function()
+      vim.g.vimtex_view_method = "sioyek"
+      vim.g.tex_conceal = "abdmg"
+      vim.opt_local.conceallevel = 2
+      vim.g.vimtex_quickfix_mode = 0
+      vim.g.tex_flavor = "latex"
+    end,
+  },
+  {
+    "m4xshen/hardtime.nvim",
+    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    opts = {},
   },
   {
     "mustache/vim-mustache-handlebars",
