@@ -172,7 +172,11 @@ return {
   },
   {
     "lervag/vimtex",
-    ft = "tex",
+    lazy = false,
+    init = function()
+      vim.g.vimtex_view_method = "sioyek"
+      vim.g.maplocalleader = "\\"
+    end,
   },
   {
     "mustache/vim-mustache-handlebars",
