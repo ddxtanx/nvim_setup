@@ -59,12 +59,16 @@ snippet template "Latex Template" b
 % %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{biblatex}
+\usepackage{float}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % The next command includes all important libraries for math papers
 % %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{amsmath,amssymb,amsthm,amsfonts,amscd}
 \usepackage{tikz, tikz-cd}
+\usepackage{bbm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % We use newtheorem to define theorem-like structures
 % %
@@ -72,10 +76,24 @@ snippet template "Latex Template" b
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
+\newcommand{\lemmaautorefname}{Lemma}
 \newtheorem{proposition}{Proposition}
+\newcommand{\propositionautorefname}{Proposition}
 \newtheorem{corollary}{Corollary}
+\newcommand{\corollaryautorefname}{Corollary}
 \newtheorem{definition}{Definition}
+\newcommand{\definitionautorefname}{Definition}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % New commands
+\newcommand{\Cat}[1]{\mathcal{#1}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\Set}{\mathrm{Set}}
+\newcommand{\Ring}{\mathrm{Ring}}
+\newcommand{\Top}{\mathrm{Top}}
+\newcommand{\Grp}{\mathrm{Grp}}
+\newcommand{\Ab}{\mathrm{Ab}}
+\newcommand{\op}[1]{#1^{\mathrm{op}}}
 % %   The first thanks indicates your affiliation
 % %
 % %  Just the name here.
