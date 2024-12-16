@@ -156,6 +156,7 @@ return {
     lazy = false,
     init = function()
       vim.g.vimtex_view_method = "sioyek"
+      vim.g.vimtex_view_sioyek_options = "--new-window"
       vim.g.tex_conceal = "abdmg"
       vim.opt_local.conceallevel = 2
       vim.g.vimtex_quickfix_mode = 0
