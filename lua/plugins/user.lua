@@ -220,6 +220,10 @@ return {
     end,
   },
   {
+    "hrsh7th/cmp-nvim-lsp",
+    after = "nvim-cmp",
+  },
+  {
     "ggandor/leap.nvim",
     config = function() require("leap").add_default_mappings() end,
     event = "BufEnter",

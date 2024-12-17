@@ -2,6 +2,7 @@
 -- Configuration documentation can be found with `:h astrolsp`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 ---@type LazySpec
 return {
@@ -43,7 +44,12 @@ return {
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
-      clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      clangd = {
+        capabilities = capabilities,
+      },
+      rust_analyzer = {
+        capabilities = capabilities,
+      },
     },
     -- customize how language servers are attached
     handlers = {
