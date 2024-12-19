@@ -1,7 +1,7 @@
 # Project gitignore
 lazy-lock.json
 .luarc.json
-after
+#after
 coc-settings.json
 colors
 docs
