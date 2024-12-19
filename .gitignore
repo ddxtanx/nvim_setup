@@ -5,7 +5,7 @@ lazy-lock.json
 coc-settings.json
 colors
 docs
-ftplugin
+#ftplugin
 ginit.vim
 lua/packer_compiled.lua
 neoconf.json
