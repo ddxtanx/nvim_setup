@@ -58,20 +58,19 @@ snippet template "Latex Template" b
 % % contain vector graphic image data.
 % %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage{float}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% % The next command includes all important libraries for math papers
-% %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{amsmath,amssymb,amsthm,amsfonts,amscd}
-\usepackage{tikz, tikz-cd}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{
+	amsmath, enumerate,	graphicx, mathtools, theoremref, tikz, tikz-cd, times, 
+	amssymb,	% extended symbol collection; includes amsfonts
+	amsthm,		% helps with theorem like structures
+	float		% allows for figure placement
+}	
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,pagebackref=true]{hyperref}
+\usepackage{color}
 \usepackage{bbm}
-\usepackage{enumerate}
-\usepackage{mathtools}
-\usepackage{theoremref}
-\usepackage{times}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % We use newtheorem to define theorem-like structures
 % %
