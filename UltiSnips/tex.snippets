@@ -60,7 +60,6 @@ snippet template "Latex Template" b
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{graphicx}
 \usepackage{hyperref}
-\usepackage{biblatex}
 \usepackage{float}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % The next command includes all important libraries for math papers
@@ -69,11 +68,17 @@ snippet template "Latex Template" b
 \usepackage{amsmath,amssymb,amsthm,amsfonts,amscd}
 \usepackage{tikz, tikz-cd}
 \usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{theoremref}
+\usepackage{times}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % We use newtheorem to define theorem-like structures
 % %
 % % Here are some common ones. . .
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\numberwithin{equation}{section}
+
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
 \newcommand{\lemmaautorefname}{Lemma}
@@ -81,11 +86,25 @@ snippet template "Latex Template" b
 \newcommand{\propositionautorefname}{Proposition}
 \newtheorem{corollary}{Corollary}
 \newcommand{\corollaryautorefname}{Corollary}
-\newtheorem{definition}{Definition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
 \newcommand{\definitionautorefname}{Definition}
+\newtheorem{example}[theorem]{Example}
+\newcommand{\exampleautorefname}{Example}
+\newtheorem{notation}[theorem]{Notation}
+\newcommand{\notationautorefname}{Notation}
+\newtheorem{question}[theorem]{Question}
+\newcommand{\questionautorefname}{Question}
+
+\theoremstyle{remark}
+\newtheorem{convention}[theorem]{Convention}
+\newcommand{\conventionautorefname}{Convention}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\remarkautorefname}{Remark}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % New commands
-\newcommand{\Cat}[1]{\mathcal{#1}}
+\newcommand{\Cat}[1]{\mathscr{#1}}
 \newcommand{\Hom}{\mathrm{Hom}}
 \newcommand{\id}{\mathrm{id}}
 \newcommand{\Set}{\mathrm{Set}}
@@ -94,6 +113,7 @@ snippet template "Latex Template" b
 \newcommand{\Grp}{\mathrm{Grp}}
 \newcommand{\Ab}{\mathrm{Ab}}
 \newcommand{\op}[1]{#1^{\mathrm{op}}}
+\newcommand{\im}{\mathrm{im}}
 % %   The first thanks indicates your affiliation
 % %
 % %  Just the name here.
