@@ -13,11 +13,11 @@ then
       if [ $sysname == "Linux" ]
       then
         echo "Installing codelldb extension for x86_64 Linux"
-        wget https://github.com/vadimcn/codelldb/releases/latest/download/codelldb-x86_64-linux.vsix -O /tmp/codelldb.vsix
+        wget https://github.com/vadimcn/codelldb/releases/download/v1.11.4/codelldb-linux-x64.vsix -O /tmp/codelldb.vsix
       elif [ $sysname == "Darwin" ]
       then
         echo "Installing codelldb extension for x86_64 Darwin"
-        wget https://github.com/vadimcn/codelldb/releases/latest/download/codelldb-x86_64-darwin.vsix -O /tmp/codelldb.vsix
+        wget https://github.com/vadimcn/codelldb/releases/download/v1.11.4/codelldb-darwin-x64.vsix -O /tmp/codelldb.vsix
       fi
     elif [ $arch_val == "aarch64" ] || [ $arch_val == "arm64" ]
     then
@@ -26,15 +26,15 @@ then
       if [ $sysname == "Linux" ]
       then
         echo "Installing codelldb extension for aarch64 Linux"
-        wget https://github.com/vadimcn/codelldb/releases/latest/download/codelldb-aarch64-linux.vsix -O /tmp/codelldb.vsix
+        wget https://github.com/vadimcn/codelldb/releases/download/v1.11.4/codelldb-linux-arm64.vsix -O /tmp/codelldb.vsix
       elif [ $sysname == "Darwin" ]
       then
         echo "Installing codelldb extension for aarch64 Darwin"
-        wget https://github.com/vadimcn/codelldb/releases/latest/download/codelldb-aarch64-darwin.vsix -O /tmp/codelldb.vsix
+        wget https://github.com/vadimcn/codelldb/releases/download/v1.11.4/codelldb-darwin-arm64.vsix -O /tmp/codelldb.vsix
       fi
     fi
     code --install-extension /tmp/codelldb.vsix
-    cp -r $HOME/.vscode/extensions/vadimcn.vscode-lldb* ./lua/plugins/dap/codelldb
+    cp -r $HOME/.vscode/extensions/vadimcn.vscode-lldb-1.11.4 ./lua/plugins/dap/codelldb
 
   else
     echo "The codelldb extension is not installed, please either install it manually or install vscode for automated installation."
