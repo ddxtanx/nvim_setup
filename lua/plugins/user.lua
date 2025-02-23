@@ -73,7 +73,7 @@ return {
       local Rule = require "nvim-autopairs.rule"
       local cond = require "nvim-autopairs.conds"
       npairs.add_rules {
-        Rule("$", "$", "tex"):with_move(function(opts_2) return opts_2.next_char == opts_2.char end),
+        Rule("$", "$", { "tex", "latex" }):with_move(function(opts_2) return opts_2.next_char == opts_2.char end),
       }
       npairs.get_rule("'")[1].not_filetypes = { "tex", "rs" }
     end,
