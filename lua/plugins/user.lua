@@ -72,6 +72,10 @@ return {
       local npairs = require "nvim-autopairs"
       local Rule = require "nvim-autopairs.rule"
       local cond = require "nvim-autopairs.conds"
+      npairs.add_rules {
+        Rule("$", "$", "tex"):with_move(function(opts_2) return opts_2.next_char == opts_2.char end),
+      }
+      npairs.get_rule("'")[1].not_filetypes = { "tex", "rs" }
     end,
   },
   {
@@ -147,6 +151,11 @@ return {
   -- },
   {
     "SirVer/ultisnips",
+    config = function()
+      vim.g.UltiSnipsExpandTrigger = "<tab>"
+      vim.g.UltiSnipsJumpForwardTrigger = "<Tab>"
+      vim.g.UltiSnipsJumpBackwardTrigger = "<S-Tab>"
+    end,
   },
   {
     "mattn/emmet-vim",
