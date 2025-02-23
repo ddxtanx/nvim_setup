@@ -104,7 +104,7 @@ snippet template "Latex Template" b
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % New commands
 \newcommand{\Cat}[1]{\mathscr{#1}}
-\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\id}{\mathrm{id}}
 \newcommand{\Set}{\mathrm{Set}}
 \newcommand{\Ring}{\mathrm{Ring}}
@@ -112,7 +112,9 @@ snippet template "Latex Template" b
 \newcommand{\Grp}{\mathrm{Grp}}
 \newcommand{\Ab}{\mathrm{Ab}}
 \newcommand{\op}[1]{#1^{\mathrm{op}}}
-\newcommand{\im}{\mathrm{im}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\colim}{\operatorname{colim}}
+\newcommand{\Spec}{\operatorname{Spec}}
 % %   The first thanks indicates your affiliation
 % %
 % %  Just the name here.
@@ -148,6 +150,28 @@ snippet template "Latex Template" b
 %%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
+endsnippet
+
+snippet tikz "Tikz Figure" bi
+\begin{figure}
+	\centering
+	\begin{tikzcd}
+		${1:}
+	\end{tikzcd}
+	\caption{${2:}}
+	\label{fig:${3:${2/\W+/-/g}}}
+\end{figure}
+endsnippet
+
+snippet tikzh "Tikz Figure Float" bi
+\begin{figure}[H]
+	\centering
+	\begin{tikzcd}
+		${1:}
+	\end{tikzcd}
+	\caption{${2:}}
+	\label{fig:${3:${2/\W+/-/g}}}
+\end{figure}
 endsnippet
 
 snippet beg "begin{} / end{}" bi
