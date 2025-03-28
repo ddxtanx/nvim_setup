@@ -25,27 +25,3 @@ vim.keymap.set(
   ":lua require('dap.ext.vscode').load_launchjs(nil, { lldb = {'c', 'cpp', 'rust' }, cppdbg = {'c', 'cpp'} })<cr>",
   { desc = "Loads a launch.json config for debugging" }
 )
-vim.keymap.set(
-  "n",
-  "<leader>vt",
-  ":lua require('telescope').extensions.vstask.tasks()<cr>",
-  { desc = "View launch.json tasks" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>vi",
-  ":lua require('telescope').extensions.vstask.inputs()<cr>",
-  { desc = "View launch.json inputs" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>vh",
-  ":lua require('telescope').extensions.vstask.history()<cr>",
-  { desc = "View launch.json task history" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>vl",
-  ":lua require('telescope').extensions.vstask.launch()<cr>",
-  { desc = "Launch task.json tasks" }
-)

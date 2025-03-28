@@ -17,24 +17,26 @@ return {
 
   -- customize alpha options
   {
-    "goolord/alpha-nvim",
-    opts = function(_, opts)
-      -- customize the dashboard header
-      opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
-        " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
-      }
-      return opts
-    end,
+    "folke/snacks.nvim",
+    opts = {
+      dashboard = {
+        preset = {
+          header = table.concat({
+            " █████  ███████ ████████ ██████   ██████ ",
+            "██   ██ ██         ██    ██   ██ ██    ██",
+            "███████ ███████    ██    ██████  ██    ██",
+            "██   ██      ██    ██    ██   ██ ██    ██",
+            "██   ██ ███████    ██    ██   ██  ██████ ",
+            "",
+            "███    ██ ██    ██ ██ ███    ███",
+            "████   ██ ██    ██ ██ ████  ████",
+            "██ ██  ██ ██    ██ ██ ██ ████ ██",
+            "██  ██ ██  ██  ██  ██ ██  ██  ██",
+            "██   ████   ████   ██ ██      ██",
+          }, "\n"),
+        },
+      },
+    },
   },
 
   -- You can disable default plugins as follows:
@@ -73,7 +75,17 @@ return {
       local Rule = require "nvim-autopairs.rule"
       local cond = require "nvim-autopairs.conds"
       npairs.add_rules {
-        Rule("$", "$", { "tex", "latex" }):with_move(function(opts_2) return opts_2.next_char == opts_2.char end),
+        Rule("$", "$", { "tex", "latex" })
+          -- don't add a pair if the next character is %
+          :with_pair(cond.not_after_regex "%%")
+          -- don't add a pair if  the previous character is xxx
+          :with_pair(cond.not_before_regex("xxx", 3))
+          -- don't move right when repeat character
+          :with_move(cond.none())
+          -- don't delete if the next character is xx
+          :with_del(cond.not_after_regex "xx")
+          -- disable adding a newline when you press <cr>
+          :with_cr(cond.none()),
       }
       npairs.get_rule("'")[1].not_filetypes = { "tex", "rs" }
     end,
@@ -127,15 +139,6 @@ return {
       "h",
       "hpp",
     },
-  },
-  {
-    "EthanJWright/vs-tasks.nvim",
-    dependencies = {
-      "nvim-lua/popup.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-    keys = "<leader>v",
   },
   {
     "simrat39/inlay-hints.nvim",
@@ -203,37 +206,6 @@ return {
     opts = {
       -- set configuration options  as described below
     },
-  },
-  "quangnguyen30192/cmp-nvim-ultisnips",
-  { -- override nvim-autopairs plugin
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "quangnguyen30192/cmp-nvim-ultisnips",
-      "SirVer/ultisnips",
-    },
-    -- override the options table that is used in the `require("cmp").setup()` call
-    opts = function(_, opts)
-      -- opts parameter is the default options table
-      -- the function is lazy loaded so cmp is able to be required
-      local cmp = require "cmp"
-      -- modify the sources part of the options table
-      opts.sources = cmp.config.sources {
-        { name = "nvim_lsp", priority = 1000 },
-        { name = "ultisnips", priority = 900 },
-        { name = "luasnip", priority = 750 },
-        { name = "buffer", priority = 500 },
-        { name = "path", priority = 250 },
-      }
-      -- Remove tab binding
-      opts.mapping["<Tab>"] = nil
-
-      -- return the new table to be used
-      return opts
-    end,
-  },
-  {
-    "hrsh7th/cmp-nvim-lsp",
-    after = "nvim-cmp",
   },
   {
     "ggandor/leap.nvim",
