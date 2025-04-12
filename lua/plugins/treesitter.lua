@@ -9,5 +9,9 @@ return {
       "vim",
       -- add more arguments for adding more treesitter parsers
     },
+    highlight = {
+      enable = true,
+      disable = { "latex", "tex" },
+    },
   },
 }

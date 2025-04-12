@@ -11,6 +11,7 @@ return {
         buffer = { score_offset = 1 },
         path = { score_offset = 2 },
         ultisnips = { score_offset = 8 },
+        vimtex = { score_offset = 9 },
       },
     },
   },
