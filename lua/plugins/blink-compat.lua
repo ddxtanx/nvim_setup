@@ -15,7 +15,7 @@ return {
   },
   opts = {
     sources = {
-      default = { "lsp", "vimtex", "path", "buffer", "snippets", "ultisnips" },
+      default = { "lsp", "vimtex", "path", "ultisnips", "buffer", "snippets" },
       providers = {
         ultisnips = {
           name = "ultisnips",
