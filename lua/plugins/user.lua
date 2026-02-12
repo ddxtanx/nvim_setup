@@ -118,7 +118,7 @@ return {
     event = "BufEnter",
   },
   {
-    "ActivityWatch/aw-watcher-vim",
+    "lowitea/aw-watcher.nvim",
     lazy = false,
   },
   {
@@ -174,9 +174,9 @@ return {
       vim.opt_local.conceallevel = 2
       vim.g.vimtex_quickfix_mode = 0
       vim.g.tex_flavor = "latex"
-      vim.g.vimtex_compiler_latexmk_engines = {
-        _ = "-lualatex",
-      }
+      -- vim.g.vimtex_compiler_latexmk_engines = {
+      -- _ = "-lualatex",
+      -- }
     end,
   },
   {
