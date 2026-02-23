@@ -58,18 +58,22 @@ snippet template "Latex Template" b
 % % contain vector graphic image data.
 % %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
 \usepackage{
-	amsmath, enumerate,	graphicx, mathtools, theoremref, tikz, tikz-cd, times, 
-	amssymb,	% extended symbol collection; includes amsfonts
-	amsthm,		% helps with theorem like structures
-	float		% allows for figure placement
+  amsmath, enumerate,	graphicx, mathtools, tikz, tikz-cd, times, 
+  amssymb,	% extended symbol collection; includes amsfonts
+  amsthm,		% helps with theorem like structures
+  float,		% allows for figure placement
 }	
 \usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,pagebackref=true]{hyperref}
 \usepackage{color}
 \usepackage{bbm}
-\usepackage{fontspec}
-\usepackage{unicode-math}
+\usepackage{mathrsfs}
+\usepackage{thmtools}
+\usepackage{cleveref}
+% \usepackage{unicode-math}
+\bibliographystyle{amsalpha}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % We use newtheorem to define theorem-like structures
@@ -78,29 +82,18 @@ snippet template "Latex Template" b
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \numberwithin{equation}{section}
 
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}{Lemma}
-\newcommand{\lemmaautorefname}{Lemma}
-\newtheorem{proposition}{Proposition}
-\newcommand{\propositionautorefname}{Proposition}
-\newtheorem{corollary}{Corollary}
-\newcommand{\corollaryautorefname}{Corollary}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
 
-\theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
-\newcommand{\definitionautorefname}{Definition}
 \newtheorem{example}[theorem]{Example}
-\newcommand{\exampleautorefname}{Example}
 \newtheorem{notation}[theorem]{Notation}
-\newcommand{\notationautorefname}{Notation}
 \newtheorem{question}[theorem]{Question}
-\newcommand{\questionautorefname}{Question}
 
-\theoremstyle{remark}
 \newtheorem{convention}[theorem]{Convention}
-\newcommand{\conventionautorefname}{Convention}
 \newtheorem{remark}[theorem]{Remark}
-\newcommand{\remarkautorefname}{Remark}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % New commands
 \newcommand{\Cat}[1]{\mathscr{#1}}
@@ -123,6 +116,8 @@ snippet template "Latex Template" b
 \newcommand{\fib}{\operatorname{fib}}
 \newcommand{\ev}{\mathrm{ev}}
 \newcommand{\coker}{\operatorname{coker}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Coker}{\operatorname{Coker}}
 \newcommand{\Sp}{\mathscr{Sp}}
 \newcommand{\sh}{\operatorname{sh}}
 \newcommand{\ho}{\operatorname{ho}}
@@ -140,6 +135,10 @@ snippet template "Latex Template" b
 \renewcommand{\AA}{\mathbb{A}}
 \renewcommand{\SS}{\mathbb{S}}
 \newcommand{\FF}{\mathbb{F}}
+\newcommand{\LL}{\Lambda}
+\newcommand{\frakp}{\mathfrak{p}}
+\newcommand{\Sq}{\mathrm{Sq}}
+\renewcommand{\Im}{\operatorname{Im}}
 % %   The first thanks indicates your affiliation
 % %
 % %  Just the name here.
@@ -155,8 +154,6 @@ snippet template "Latex Template" b
 % % all sides.
 % %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{geometry}[margin=1in]
-
 \begin{document}
 \newpage
 \maketitle
