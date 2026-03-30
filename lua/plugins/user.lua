@@ -177,9 +177,9 @@ return {
       vim.opt_local.conceallevel = 2
       vim.g.vimtex_quickfix_mode = 0
       vim.g.tex_flavor = "latex"
-      -- vim.g.vimtex_compiler_latexmk_engines = {
-      -- _ = "-lualatex",
-      -- }
+      vim.g.vimtex_compiler_latexmk_engines = {
+        _ = "-lualatex",
+      }
     end,
   },
   {
@@ -212,7 +212,7 @@ return {
     },
   },
   {
-    "ggandor/leap.nvim",
+    "https://codeberg.org/andyg/leap.nvim",
     config = function() require("leap").add_default_mappings() end,
     event = "BufEnter",
   },
