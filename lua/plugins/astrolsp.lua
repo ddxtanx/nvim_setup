@@ -43,15 +43,25 @@ return {
     -- customize language server configuration passed to `vim.lsp.config`
     -- client specific configuration can also go in `lsp/` in your configuration root (see `:h lsp-config`)
     config = {
-      clangd = {
-        capabilities = capabilities,
-      },
-      rust_analyzer = {
-        capabilities = capabilities,
+      ["*"] = {
+        capabilities = {
+          textDocument = {
+            foldingRange = { dynamicRegistration = false },
+          },
+        },
+        flags = {
+          exit_timeout = 5000,
+        },
       },
     },
     -- customize how language servers are attached
     handlers = {
+      ["*"] = function(server)
+        -- If you need the LSP options for a server use `vim.lsp.config` table
+        -- This is useful for cases of setting up language server specific plugins
+        local opts = vim.lsp.config[server]
+        vim.lsp.enable(server)
+      end,
       -- a function with the key `*` modifies the default handler, functions takes the server name as the parameter
       -- ["*"] = function(server) vim.lsp.enable(server) end
 

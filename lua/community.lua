@@ -10,7 +10,6 @@ return {
     import = "astrocommunity.pack.rust",
   },
   { import = "astrocommunity.pack.cmake" },
-  { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.json" },
   {
     import = "astrocommunity.completion.copilot-lua",
@@ -20,8 +19,6 @@ return {
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.file-explorer.oil-nvim" },
   { import = "astrocommunity.media.pets-nvim" },
-  { import = "astrocommunity.note-taking.neorg" },
-  { import = "astrocommunity.test.neotest" },
   {
     "copilot.lua",
     opts = {

@@ -4,7 +4,7 @@
 return {
   -- use mason-tool-installer for automatically installing Mason packages
   {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    "mason-org/mason.nvim",
     -- overrides `require("mason-tool-installer").setup(...)`
     opts = {
       ensure_installed = {
@@ -17,6 +17,7 @@ return {
         "neocmakelsp",
         "taplo",
         "codelldb",
+        "ruff",
         -- add more arguments for adding more language servers
       },
     },

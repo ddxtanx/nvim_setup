@@ -1,5 +1,5 @@
 return {
-  "Saghen/blink.cmp",
+  "saghen/blink.cmp",
   opts = {
     keymap = {
       ["<Tab>"] = { "snippet_forward", "fallback" },

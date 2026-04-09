@@ -1,5 +1,5 @@
 return {
-  "Saghen/blink.cmp",
+  "saghen/blink.cmp",
   optional = true,
   dependencies = {
     "quangnguyen30192/cmp-nvim-ultisnips",

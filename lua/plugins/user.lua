@@ -7,7 +7,6 @@ return {
 
   -- == Examples of Adding Plugins ==
 
-  "andweeb/presence.nvim",
   {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
@@ -95,16 +94,6 @@ return {
     end,
   },
   {
-    "kiyoon/jupynium.nvim",
-    build = "pip3 install --user .",
-    event = {
-      "BufEnter *.py",
-      "BufEnter *.ipynb",
-    },
-    -- build = "conda run --no-capture-output -n jupynium pip install .",
-    -- enabled = vim.fn.isdirectory(vim.fn.expand "~/miniconda3/envs/jupynium"),
-  },
-  {
     "akinsho/git-conflict.nvim",
     version = "*",
     config = true,
@@ -123,11 +112,6 @@ return {
   {
     "lowitea/aw-watcher.nvim",
     lazy = false,
-  },
-  {
-    "iamcco/markdown-preview.nvim",
-    build = function() vim.fn["mkdp#util#install"]() end,
-    ft = "markdown",
   },
   {
     "ray-x/lsp_signature.nvim",
@@ -205,12 +189,6 @@ return {
     event = "VeryLazy",
   },
   { "nvim-neotest/nvim-nio" },
-  {
-    "AstroNvim/astrolsp",
-    opts = {
-      -- set configuration options  as described below
-    },
-  },
   {
     "https://codeberg.org/andyg/leap.nvim",
     config = function() require("leap").add_default_mappings() end,
