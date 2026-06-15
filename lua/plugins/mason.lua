@@ -12,12 +12,12 @@ return {
         "debugpy",
         "stylua",
         "tree-sitter-cli",
-        "basedpyright",
         "json-lsp",
         "neocmakelsp",
         "taplo",
         "codelldb",
         "ruff",
+        "pyrefly",
         -- add more arguments for adding more language servers
       },
     },

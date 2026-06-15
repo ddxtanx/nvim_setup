@@ -41,8 +41,8 @@ return {
 
   -- You can disable default plugins as follows:
   { "max397574/better-escape.nvim", enabled = false },
-
-  -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
+  --
+  -- -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
     "L3MON4D3/LuaSnip",
     config = function(plugin, opts)
@@ -67,7 +67,7 @@ return {
       },
     },
   },
-
+  --
   {
     "windwp/nvim-autopairs",
     config = function(plugin, opts)
@@ -110,7 +110,7 @@ return {
     event = "BufEnter",
   },
   {
-    "lowitea/aw-watcher.nvim",
+    "ashleyghooper/aw-watcher.nvim",
     lazy = false,
   },
   {
@@ -176,22 +176,17 @@ return {
     ft = "hbs",
   },
   {
-    "kevinhwang91/nvim-fundo",
-    dependencies = {
-      "kevinhwang91/promise-async",
-    },
-    event = "BufEnter",
-    build = function() require("fundo").install() end,
-    setup = function() require("fundo").setup() end,
-  },
-  {
-    "IogaMaster/neocord",
-    event = "VeryLazy",
-  },
-  { "nvim-neotest/nvim-nio" },
-  {
     "https://codeberg.org/andyg/leap.nvim",
     config = function() require("leap").add_default_mappings() end,
     event = "BufEnter",
+  },
+  {
+    "stasfilin/nvim-sandman",
+    config = function()
+      require("nvim_sandman").setup {
+        enabled = false,
+        mode = "block_all", -- block_all | blocklist | allowlist
+      }
+    end,
   },
 }
