@@ -27,12 +27,14 @@ return {
       -- see `:h vim.filetype.add` for usage
       extension = {
         foo = "fooscript",
+        rzk = "rzk",
       },
       filename = {
         [".foorc"] = "fooscript",
       },
       pattern = {
         [".*/etc/foo/.*"] = "fooscript",
+        [".*%.rzk%.md"] = "rzk",
       },
     },
     -- vim options can be configured here
