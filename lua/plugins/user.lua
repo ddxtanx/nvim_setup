@@ -180,6 +180,17 @@ return {
     end,
   },
   {
+    "Zeta611/tex2uni.nvim",
+    opts = {
+      ft = { "*.{tex,v,rzk.md}" }, -- enable for specific filetypes
+      abbreviations = {
+        extra = {
+          ["pure"] = "⌜$CURSOR⌝", -- add custom abbreviations
+        },
+      },
+    },
+  },
+  {
     "m4xshen/hardtime.nvim",
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
     opts = {},
