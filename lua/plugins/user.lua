@@ -167,16 +167,18 @@ return {
     end,
   },
   {
-    "toppair/peek.nvim",
-    event = { "VeryLazy" },
-    build = "deno task --quiet build:fast",
+    "brianhuster/live-preview.nvim",
+    dependencies = {
+      -- You can choose one of the following pickers
+      "nvim-telescope/telescope.nvim",
+      "ibhagwan/fzf-lua",
+      "echasnovski/mini.pick",
+      "folke/snacks.nvim",
+    },
     config = function()
-      require("peek").setup {
-        filetype = { "markdown", "rzk" },
-        app = { "chromium-browser" },
+      require("livepreview.config").set {
+        browser = "firefox --new-window",
       }
-      vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
-      vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
     end,
   },
   {
@@ -203,14 +205,5 @@ return {
     "https://codeberg.org/andyg/leap.nvim",
     config = function() require("leap").add_default_mappings() end,
     event = "BufEnter",
-  },
-  {
-    "stasfilin/nvim-sandman",
-    config = function()
-      require("nvim_sandman").setup {
-        enabled = false,
-        mode = "block_all", -- block_all | blocklist | allowlist
-      }
-    end,
   },
 }

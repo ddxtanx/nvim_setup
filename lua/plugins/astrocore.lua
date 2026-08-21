@@ -34,7 +34,7 @@ return {
       },
       pattern = {
         [".*/etc/foo/.*"] = "fooscript",
-        [".*%.rzk%.md"] = "rzk",
+        [".*%.rzk%.md"] = "rzk.markdown",
       },
     },
     -- vim options can be configured here
