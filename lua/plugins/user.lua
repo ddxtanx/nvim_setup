@@ -167,19 +167,23 @@ return {
     end,
   },
   {
-    "brianhuster/live-preview.nvim",
-    dependencies = {
-      -- You can choose one of the following pickers
-      "nvim-telescope/telescope.nvim",
-      "ibhagwan/fzf-lua",
-      "echasnovski/mini.pick",
-      "folke/snacks.nvim",
-    },
+    "ddxtanx/markdown-preview.nvim",
+    branch = "ft_option",
+    dependencies = { "selimacerbas/live-server.nvim" },
     config = function()
-      require("livepreview.config").set {
-        browser = "firefox --new-window",
+      require("markdown_preview").setup {
+        -- all optional; sane defaults shown
+        instance_mode = "takeover", -- "takeover" (one tab) or "multi" (tab per instance)
+        port = 0, -- 0 = auto (8421 for takeover, OS-assigned for multi)
+        open_browser = true,
+        default_theme = "dark", -- "dark" or "light"; initial preview theme
+        debounce_ms = 300,
+        browser = { "firefox", "--new-window" },
+        ft = { "rzk.markdown", "markdown" },
+        sync_scroll = true,
       }
     end,
+    ft = { "rzk", "markdown", "rzk.markdown" },
   },
   {
     "Zeta611/tex2uni.nvim",
