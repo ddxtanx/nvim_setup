@@ -186,6 +186,19 @@ return {
     ft = { "rzk", "markdown", "rzk.markdown" },
   },
   {
+    "ddxtanx/rzk-nvim",
+    dependencies = {
+      "mason.nvim",
+      "neovim/nvim-lspconfig",
+    },
+    config = function()
+      require("rzk").setup {
+        inlay_hints = true,
+        auto_start = true,
+      }
+    end,
+  },
+  {
     "Zeta611/tex2uni.nvim",
     opts = {
       ft = { "*.{tex,v,rzk.md}" }, -- enable for specific filetypes

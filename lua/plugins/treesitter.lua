@@ -20,7 +20,7 @@ return {
     },
     highlight = {
       enable = true,
-      disable = { "latex", "tex", "rzk" },
+      disable = { "latex", "tex" },
     },
   },
   init = function() vim.treesitter.language.register("markdown", "rzk") end,
