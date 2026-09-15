@@ -185,17 +185,9 @@ return {
     end,
     ft = { "rzk", "markdown", "rzk.markdown" },
   },
-  -- {
-  --   "ddxtanx/nvim-rzk",
-  --   dependencies = {
-  --     "neovim/nvim-lspconfig",
-  --   },
-  --   config = function()
-  --     require("nvim-rzk").setup {
-  --       rzk_path = "/home/ddxtanx/.local/opt/rzk/.stack-work/install/x86_64-linux-tinfo6/775b4f56052cbe776daeca5f5e45a94fc55538156b2a41bc4a31676f7b09b067/9.10.3/bin/rzk",
-  --     }
-  --   end,
-  -- },
+  {
+    "ddxtanx/nvim-rzk",
+  },
   {
     "Zeta611/tex2uni.nvim",
     opts = {
