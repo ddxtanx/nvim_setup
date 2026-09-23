@@ -43,8 +43,20 @@ return {
         spell = true, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = true, -- sets vim.opt.wrap
+        clipboard = "unnamedplus",
       },
       g = { -- vim.g.<key>
+        clipboard = {
+          name = "OSC 52",
+          copy = {
+            ["+"] = require("vim.ui.clipboard.osc52").copy "+",
+            ["*"] = require("vim.ui.clipboard.osc52").copy "*",
+          },
+          paste = {
+            ["+"] = require("vim.ui.clipboard.osc52").paste "+",
+            ["*"] = require("vim.ui.clipboard.osc52").paste "*",
+          },
+        },
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
